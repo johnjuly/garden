@@ -4,7 +4,7 @@ fclose()
 FILE * 所指向的结构体位于？
 假如在栈上，会在内部 定义一个FILE 结构体
 
-```
+```c
 FILE* fopen(const char *path,const char*mode)
 {
 
@@ -19,7 +19,7 @@ return &tenp;返回局部变量的地址
 若声明为static，只会声明一次 会覆盖 之前的内容static FILE tmp;
 
 
-```
+```c
 FILE* fopen(const char *path,const char*mode)
 {
 FILE * tmp =NULL;

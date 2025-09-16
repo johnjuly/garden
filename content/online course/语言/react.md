@@ -37,7 +37,7 @@
 - return jsx=what the react component should render
 - ![[Pasted image 20250821121733.png]]
 
-```CommentReply.js
+```js CommentReply.js
 import React,{useState} from'react'
 const CommentReply=(props)=>{
 return(
@@ -52,7 +52,7 @@ return(
 - {}allows us to return to js inside the jsx environment to use variables defined inside this react component
 - also use'className' instead of 'class'
 - add a state
-```CommentReply.js
+```js CommentReply.js
 import React,{useState} from'react'
 const CommentReply=(props)=>{
 const [isLiked,setIsLiked]=useState(false)
