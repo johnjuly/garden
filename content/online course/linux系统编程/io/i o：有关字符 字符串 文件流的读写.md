@@ -56,7 +56,7 @@ cp src dest
 ./mycp src dest
  
 
-```
+```c 
 //mycpy
 
 #include <stdio.h>
@@ -118,7 +118,7 @@ fclose(fps);
 
 * 测试一个文件中有多少个字符
 
-```fgetc.c
+```c fgetc.c
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -178,7 +178,7 @@ abcd
 
 puts
 修改之前的複製代碼。字符串拷貝
-```mycopy_fgets.c
+```c mycopy_fgets.c
 
 define BUFSIZE 1024
 
@@ -211,7 +211,7 @@ fread(buf,10,1,fp);
 2->0->???
 
 最好是单字节的实现
-``` mycpy_fread.c
+``` c mycpy_fread.c
 
 while(fread(buf,1,BUFSIZE,fps))
 fwrite(buf,1,BUFSIZE,fpd);
@@ -248,7 +248,7 @@ fsetpos()
 - fseek和ftell经常合在一起使用
 
 测试文件长度 
-```flen.c
+```c flen.c
 FILE *fp;
 int count =0;
 
@@ -293,7 +293,7 @@ printf("%ld\n",ftell(fp))
 - 具体操作 touch 一个文件 为0；调用fseek函数 offset 设置为2k 全为\0.把文件切成小块。利用多线程 。每个线程锁主一块下载
 
 fflush()
-```fflush.c
+```c fflush.c
 #include <stdio.h>
 #include<stdlib.h>
 /*

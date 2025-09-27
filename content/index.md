@@ -1,3 +1,8 @@
 ---
-title: bienvnue
+title: bienvenue!
 ---
+
+你好! 欢迎来到john的数字花园!!
+这里主要是分享一些在网络上看到的共鸣的事物
+以及
+记录生活 ～
