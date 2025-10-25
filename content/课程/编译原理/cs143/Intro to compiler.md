@@ -1,0 +1,56 @@
+编译器与解释器的区别，
+![[Pasted image 20251011170503.png]]
+- history :1954 ibm develops 704,software costs >hardware costs
+- 这就使人思考如何更好地去写软件
+- speedcoding:1953 解释器早期例子。比手写执行效率缓慢10-20倍。占用大的内存空间 300bytes=30%ofthe machine
+- fortran I 1954-1957 :写下公式机器可以执行的公式。formula translated.
+	- the first compiler,huge impact on computer science(theory+practice)
+	- led to an enormous body of theoretical work
+	- modern compilers preserve the outline of FORTRAN I
+- the outline
+	1. Lexical Analysis  |
+	2. Parsing                   ---(Syntactic)
+	3. Semantic Analysis(Types,scopr)
+	4. Optimization
+	5. Code Generation(Translation)
+
+
+
+# Strcuture of Compilers
+
+
+
+# Economy
+
+# Why are there so many programming languages?
+
+==Application domains have distinctive/conflicting needs.==
+(it is hard to design one system for all)
+- scientific computing.(need) Fortran
+	- good fp
+	-  good arrays
+	- parallelism
+
+- business applications SQL
+	- persistence 可靠不易丢失
+	- report generation
+	- data analysis
+- system programming  C/C++
+	- control of resources
+	- real time constriants
+	- 时空资源
+
+## Why are there are new programming languages?
+
+
+==programmer training is the dominant cost for a programming language.==
+new languages tend to look like old languages.(java vs c++)
+- predictions
+	1.  widely used languages are slow to change
+	2. easy to start a new language(生产力> traning cost)
+	3. Languages adopted to fill a void.(时代技术的进步发展)
+
+
+## What is a good programming languages?
+
+there is no universally accepted metric for language design.
