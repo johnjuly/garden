@@ -108,7 +108,7 @@ title: Bienvenue!
 ## 工具
 
 - [[工具/vim|Vim使用]]
-- [[krita/快捷键|Krita快捷键]]
+- [[快捷键|Krita快捷键]]
 
 
 
