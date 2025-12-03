@@ -41,11 +41,55 @@ TCP:Transmission Control Protocol
 ### 现代c++: 大部分安全 快速 低级
 基本的想法是让每一个对象设计出来拥有最小的可能的公共接口，拥有很多内部安全检查机制并且很难错误地使用。并且知道清理自己。
 
-想避免paried operations.比如分配释放（malloc/free,new/delete）,为什么呢，因为有的时候很可能还没来得及
+想避免paried operations.比如分配释放（malloc/free,new/delete）,为什么呢，因为有的时候很可能还没来得及.
 
 [^4]an agreed-upon scheme
 
 [^3]netcat
+
+这些操作发生在 对象的构造函数时候，相反的操作在析构函数的时候，这种类型叫做"Resource acquisition is initialization"or RAII.
+
+具体的要求如下：
+- 使用[ 语言文档]( https://en.cppreference.com)作为资源。cpluscplus.com out of date
+- 一定不要用malloc() or free()
+- 一定不要用new or delete
+- essentially 一定不要用raw pointers(\*) and use smart pointers(`unique_ptr`or`shared_ptr`) only when necessary
+- avoid templates,threads,locks and virtual functions
+- 字符串。avoid c-style strings(`char *str`) or string function( `strlen()` ,`strcpy()`) these are pretty error-prone.use a std:: string instead
+- 永远不要使用c-style casts（`(FILE *)x`）use a C++ `static_cast` if u have to
+- prefer 传递函数参数时 **const** reference(`const Address &address`)
+- 每一个变量 const 除非需要改变它
+- 每一个方法 const 除非需要改变对象
+- 避免使用全局变量，给每一个变量最小的域
+- 
+
+
+### 阅读 minnow support code
+minnow的类将操作系统函数封装在现代c++语言中。
+公共接口，`socket.hh file_descriptor.hh`
+
+|类|代表什么|
+|---|---|
+|**FileDescriptor**|OS 中所有 I/O 文件描述符的抽象（文件、管道、终端、socket 都是 FD）|
+|**Socket**|一种特殊的 file descriptor，用于网络通信|
+|**TCPSocket**|具体的 TCP socket，有 connect、listen、accept|
+### writing webget
+webget,a program to fetch web pages over the Internet usin the os 's tcp support和stream-socket的抽象。
+
+
+需要注意的是：
+	- 在http中 每一行用\r\n来结束
+	- 不要忘记include connection:close 在你的客户端请求中。这会告诉服务器不要等着你的客户端去发送更多的请求在这个之后。并且 服务器会发送一个恢复然后立即end its outgoing bytestream (the one from the server's socket to your socket)你会发现你的到来的字节流has ended 因为你的socket 会reach EOF 的那个你读完了所有从服务器发送的字节流。that's how your client will know that the server has finished its reply.
+	- 确认要read and print all the output from the server until the socket reaches eof--a single call to read is not enough
+
+
+##  an in-memory reliable byte stream
+
+单台计算机的内存里实现一个提供这种抽象的对象。可靠的字节流哇。即 bytes are written on the input side and canbe read in the same sequence  from the output side.
+字节流是确定的，写者可以end the input ,and no more bytes can be written.当读者读到流的末端时，it will reach EOF,and no more bytes can be read.
+你的字节流同样也会 **流量控制** flow-control  to limit its memory consumption at any given time.
+- the object is initialized with a particular capacity:**the maximum number of bytes** it is willing to store in its memory at any given point
+- 字节流会限制写者在一个给定时刻能够写的数量 to make sure 流不会超过它的存储容量。
 
 [^1]: hytper-text transfer protocol
 
