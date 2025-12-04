@@ -9,15 +9,17 @@ title: Bienvenue!
 - [[Bookmarks/bookmarks_categorized|看世界]]
 
 ## 更新
-[[编译原理]]
-[[语法分析]]
-[[parser lr1]]
 
+- [[编译原理]]
+- [[语法分析]]
+- [[]]
 
 ## 学习 相关
+
 [[计算机科学]]
 
 ### 图形
+
 [[lecture17 materials and appearances]]
 [[ray tracing 4(Monto Carlo Path Tracing)蒙特卡洛路径追踪]]
 
@@ -28,9 +30,11 @@ title: Bienvenue!
 [[ruby]]
 
 ### 网络实验
+
 [[lab 0 networking warmup]]
 
 ### linux系统编程
+
 - [[Project/linux系统编程/io|IO操作]]
 - [[Project/linux系统编程/文件系统|文件系统]]
 - [[Project/linux系统编程/进程|进程管理]]
@@ -49,7 +53,6 @@ title: Bienvenue!
 ## 工具
 
 [[tool]]
-
 
 ## 📋 其他
 
