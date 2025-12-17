@@ -6,13 +6,7 @@ title: Bienvenue!
 
 ## 收藏的链接
 
-- [[Bookmarks/bookmarks_categorized|看世界]]
-
-## 更新
-
-- [[编译原理]]
-- [[语法分析]]
-- [[]]
+- [[Archieves/Bookmarks/bookmarks_categorized|看世界]]
 
 ## 学习 相关
 
@@ -20,14 +14,14 @@ title: Bienvenue!
 
 ### 图形
 
-[[lecture17 materials and appearances]]
-[[ray tracing 4(Monto Carlo Path Tracing)蒙特卡洛路径追踪]]
+- [[lecture17 materials and appearances]]
+- [[ray tracing 4(Monto Carlo Path Tracing)蒙特卡洛路径追踪]]
 
 ### 语言
 
-[[react]]
-[[c 语言]]
-[[ruby]]
+- [[react]]
+- [[c 语言]]
+- [[ruby]]
 
 ### 网络实验
 
@@ -42,9 +36,9 @@ title: Bienvenue!
 
 ## 上网见闻
 
-[[扎伊尔]]
-[[地名]]
-[[喜欢的意象]]
+- [[扎伊尔]]
+- [[地名]]
+- [[喜欢的意象]]
 
 ## 音乐
 
