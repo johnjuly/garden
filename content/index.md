@@ -4,6 +4,7 @@ title: Bienvenue!
 
 欢迎来到 John 的数字花园！这里主要记录网上的见闻以及课堂的笔记。
 路径是以Para[^1]的方式来整理的。
+
 ## 收藏一些的链接
 
 - [[Archieves/Bookmarks/bookmarks_categorized|看世界]]
@@ -51,8 +52,14 @@ title: Bienvenue!
 ## 📋 其他
 
 - [[reentrant - Google 搜索|Google搜索剪辑]]
+
 ## 源自
 
 [参考的一个网友的网站](https://xuan-insr.github.io/neura-weaver/)
+
+探索世界：
+← [Previous](https://xn--sr8hvo.ws/previous)
+[IndieWeb Webring](https://xn--sr8hvo.ws) 🕸💍
+[Next](https://xn--sr8hvo.ws/next) →
 
 [^1]: 改造版本 其实是 piaa了
