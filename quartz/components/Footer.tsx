@@ -3,8 +3,13 @@ import style from "./styles/footer.scss"
 import { version } from "../../package.json"
 import { i18n } from "../i18n"
 
+interface LinkConfig {
+  url: string
+  rel?: string
+}
+
 interface Options {
-  links: Record<string, string>
+  links: Record<string, string | LinkConfig>
 }
 
 export default ((opts?: Options) => {
@@ -18,11 +23,18 @@ export default ((opts?: Options) => {
           <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> © {year}
         </p>
         <ul>
-          {Object.entries(links).map(([text, link]) => (
-            <li>
-              <a href={link}>{text}</a>
-            </li>
-          ))}
+          {Object.entries(links).map(([text, link]) => {
+            const isLinkConfig = typeof link === "object"
+            const href = isLinkConfig ? link.url : link
+            const rel = isLinkConfig ? link.rel : undefined
+            return (
+              <li>
+                <a href={href} {...(rel && { rel })}>
+                  {text}
+                </a>
+              </li>
+            )
+          })}
         </ul>
       </footer>
     )

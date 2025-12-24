@@ -20,10 +20,8 @@
 - [Standard C++](https://isocpp.org/wiki/faq/templates#templates-defn-vs-decl)
 - [介紹 | W3School C++ 教程](https://wizardforcel.gitbooks.io/w3school-cpp/content/index.html)
 - [C++ Insights](https://cppinsights.io/)
-- [课系-第 2 学堂 - 《白话 C++》视频辅导课系](https://www.d2school.com/department?sn=0c96d7c769829e9cac1831d25240c6ab)
 - [CppBuzz: Programming Interview Questions and Answers](https://www.cppbuzz.com/)
 - [CS 106L: Standard C++ Programming](https://web.stanford.edu/class/archive/cs/cs106l/cs106l.1236/)
-- [CS106L Standard C++ Programming | Learn CS](https://learncs.me/stanford/cs106l)
 - [Stroustrup: FAQ](https://www.stroustrup.com/bs_faq.html#learning)
 
 ### 操作系统
@@ -66,12 +64,7 @@
 
 - [3.1 B+ 树介绍-V1.0.0-开发者入门教程文档-分布式数据库使用文档](https://www.oceanbase.com/docs/community-developer-quickstart-0000000000660128)
 
-### 人工智能与机器学习
-
-- [1.4 Informed Search | Introduction to Artificial Intelligence](https://inst.eecs.berkeley.edu/~cs188/textbook/search/informed.html#141-heuristics)
-- [Graph Augmentation for Recommendation | IEEE Conference Publication | IEEE Xplore](https://ieeexplore.ieee.org/abstract/document/10598137/authors#authors)
-
-### 其他编程语言
+### rust编程语言
 
 - [Rust 共学学习手册](https://hon-zone.notion.site/Rust-23e577647e87802b9a1fea075955ff69)
 - [Introduction - Rust By Example](https://doc.rust-lang.org/rust-by-example/index.html)
@@ -361,8 +354,6 @@
 - [v2.jokeapi.dev/joke/Any?safe-mode](https://v2.jokeapi.dev/joke/Any?safe-mode)
 - [AlgoMaster Newsletter | Ashish Pratap Singh | Substack](https://blog.algomaster.io/)
 - [Rolling the Dice with CSS random() | WebKit](https://webkit.org/blog/17285/rolling-the-dice-with-css-random/)
-- [GitHub - lvyufeng/step_into_mips: 一步一步写 MIPS CPU](https://**github**.com/lvyufeng/step_into_mips)
-- [](https://foreverblog.cn/go.html)
 - [竹白百科](https://www.zhubai.wiki/)
 - [nian](https://docs.qq.com/doc/DZkVOelRPbkhUZHJB)
 - [修同学 Aurora (长期更新)](http://xiutongxue.ysepan.com/)

@@ -17,7 +17,7 @@ context free grammer。该文法表达能力更强。
 
 
 - ？的表示 0或者1
-- \* 的表示，迭代转成递归 `stats -> stat stats|$\epsilon$;`
+- \* 的表示，迭代转成递归 stats -> stat stats|$\epsilon$;
 
 
 ## context-sensitive grammer(csg) 非重点
@@ -138,6 +138,7 @@ $$
 ### 1. 每个正则表达式r对应的语言L(r)都可以使用上下文无关文法来描述。
 非终结符 4个状态。每一个状态转移，对应一个产生式。![[Pasted image 20251031215231.png]]
 ### 2. 有些语言无法使用正则表达式来描述
+> 正规式无法描述平衡或嵌套的结构，只能表示有限的重复，一个给定结构的无线重复。
 
 >[!notice] 定理 Theorem
 >L={${a^n}{b^n}|n\geq0$} 无法使用正则表达式描述。
