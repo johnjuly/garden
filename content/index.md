@@ -49,7 +49,7 @@ title: Bienvenue!
 
 [[tool]]
 
-## 📋 其他
+## 其他
 
 - [[reentrant - Google 搜索|Google搜索剪辑]]
 - [[about|关于本网站]]
@@ -59,8 +59,8 @@ title: Bienvenue!
 [参考的一个网友的网站](https://xuan-insr.github.io/neura-weaver/)
 
 探索世界：
-← [Previous](https://xn--sr8hvo.ws/previous)
-[IndieWeb Webring](https://xn--sr8hvo.ws) 🕸💍
-[Next](https://xn--sr8hvo.ws/next) →
+[← ](https://xn--sr8hvo.ws/previous)
+[🕸💍](https://xn--sr8hvo.ws) 
+[→](https://xn--sr8hvo.ws/next) 
 
 [^1]: 改造版本 其实是 piaa了
