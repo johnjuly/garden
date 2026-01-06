@@ -42,8 +42,17 @@
 
   & .fold {
     margin-left: 0.5rem;
-    transition: transform 0.3s ease;
-    opacity: 0.8;
+    width: 0.85rem;
+    height: 0.85rem;
+    color: var(--darkgray);
+    transition:
+      transform 0.25s ease,
+      opacity 0.2s ease,
+      color 0.2s ease;
+    opacity: 0.6;
+    & polyline {
+      stroke-width: 1.5;
+    }
   }
 
   @media all and ($mobile) {
@@ -194,12 +203,20 @@ button.desktop-explorer {
 }
 
 .folder-icon {
-  margin-right: 5px;
-  color: var(--secondary);
+  width: 0.75rem;
+  height: 0.75rem;
+  padding: 2px;
+  box-sizing: content-box;
+  margin-right: 4px;
+  color: var(--darkgray);
   cursor: pointer;
   transition: transform 0.3s ease;
   backface-visibility: visible;
   flex-shrink: 0;
+  opacity: 0.65;
+  & polyline {
+    stroke-width: 1.5;
+  }
 }
 
 li:has(> .folder-outer:not(.open)) > .folder-container > svg {
@@ -207,7 +224,8 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
 }
 
 .folder-icon:hover {
-  color: var(--tertiary);
+  opacity: 0.9;
+  color: var(--secondary);
 }
 
 .explorer {

@@ -29,12 +29,25 @@ button.toc-header {
 
   & .fold {
     margin-left: 0.5rem;
-    transition: transform 0.3s ease;
-    opacity: 0.8;
+    width: 0.95rem;
+    height: 0.95rem;
+    color: var(--darkgray);
+    transition:
+      transform 0.25s ease,
+      opacity 0.2s ease,
+      color 0.2s ease;
+    opacity: 0.6;
+    & polyline {
+      stroke-width: 1.5;
+    }
   }
 
   &.collapsed .fold {
     transform: rotateZ(-90deg);
+  }
+
+  &:hover .fold {
+    opacity: 0.8;
   }
 }
 
