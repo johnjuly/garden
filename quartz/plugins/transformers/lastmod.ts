@@ -15,7 +15,9 @@ const defaultOptions: Options = {
 // YYYY-MM-DD
 const iso8601DateOnlyRegex = /^\d{4}-\d{2}-\d{2}$/
 
-function coerceDate(fp: string, d: any): Date {
+function coerceDate(fp: string, d: any): Date | undefined {
+  if (d === undefined || d === null) return undefined
+
   // check ISO8601 date-only format
   // we treat this one as local midnight as the normal
   // js date ctor treats YYYY-MM-DD as UTC midnight
@@ -24,7 +26,7 @@ function coerceDate(fp: string, d: any): Date {
   }
 
   const dt = new Date(d)
-  const invalidDate = isNaN(dt.getTime()) || dt.getTime() === 0
+  const invalidDate = isNaN(dt.getTime()) || (typeof d === "number" && d === 0)
   if (invalidDate && d !== undefined) {
     console.log(
       styleText(
@@ -34,7 +36,7 @@ function coerceDate(fp: string, d: any): Date {
     )
   }
 
-  return invalidDate ? new Date() : dt
+  return invalidDate ? undefined : dt
 }
 
 type MaybeDate = undefined | string | number
@@ -107,9 +109,9 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
 declare module "vfile" {
   interface DataMap {
     dates: {
-      created: Date
-      modified: Date
-      published: Date
+      created?: Date
+      modified?: Date
+      published?: Date
     }
   }
 }

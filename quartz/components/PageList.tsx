@@ -9,13 +9,15 @@ export type SortFn = (f1: QuartzPluginData, f2: QuartzPluginData) => number
 export function byDateAndAlphabetical(cfg: GlobalConfiguration): SortFn {
   return (f1, f2) => {
     // Sort by date/alphabetical
-    if (f1.dates && f2.dates) {
+    const f1Date = getDate(cfg, f1)
+    const f2Date = getDate(cfg, f2)
+    if (f1Date && f2Date) {
       // sort descending
-      return getDate(cfg, f2)!.getTime() - getDate(cfg, f1)!.getTime()
-    } else if (f1.dates && !f2.dates) {
+      return f2Date.getTime() - f1Date.getTime()
+    } else if (f1Date && !f2Date) {
       // prioritize files with dates
       return -1
-    } else if (!f1.dates && f2.dates) {
+    } else if (!f1Date && f2Date) {
       return 1
     }
 
@@ -35,13 +37,15 @@ export function byDateAndAlphabeticalFolderFirst(cfg: GlobalConfiguration): Sort
     if (!f1IsFolder && f2IsFolder) return 1
 
     // If both are folders or both are files, sort by date/alphabetical
-    if (f1.dates && f2.dates) {
+    const f1Date = getDate(cfg, f1)
+    const f2Date = getDate(cfg, f2)
+    if (f1Date && f2Date) {
       // sort descending
-      return getDate(cfg, f2)!.getTime() - getDate(cfg, f1)!.getTime()
-    } else if (f1.dates && !f2.dates) {
+      return f2Date.getTime() - f1Date.getTime()
+    } else if (f1Date && !f2Date) {
       // prioritize files with dates
       return -1
-    } else if (!f1.dates && f2.dates) {
+    } else if (!f1Date && f2Date) {
       return 1
     }
 
@@ -74,7 +78,10 @@ export const PageList: QuartzComponent = ({ cfg, fileData, allFiles, limit, sort
           <li class="section-li">
             <div class="section">
               <p class="meta">
-                {page.dates && <Date date={getDate(cfg, page)!} locale={cfg.locale} />}
+                {(() => {
+                  const date = page.dates ? getDate(cfg, page) : undefined
+                  return date ? <Date date={date} locale={cfg.locale} /> : null
+                })()}
               </p>
               <div class="desc">
                 <h3>
