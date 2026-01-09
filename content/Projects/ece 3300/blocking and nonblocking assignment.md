@@ -1,3 +1,7 @@
+---
+created: '2026-01-06'
+---
+
 - continous assignment data flow model outside of always blocks  有 assign keyword 一旦右边有变化 左边立刻更新
 - procdural assignment within a always block 没有 assign keyword 只有当always triggerd 左边才会更新 两种方式
 	- blocking(immedia): =

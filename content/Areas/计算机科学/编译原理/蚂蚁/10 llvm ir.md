@@ -1,3 +1,7 @@
+---
+created: '2026-01-06'
+---
+
 #编译原理
 
 [chris lattner](https://nondot.org/sabre/) 笑眯眯怪

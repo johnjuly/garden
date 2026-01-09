@@ -1,6 +1,7 @@
 ---
 tags:
   - verilog
+created: '2026-01-06'
 ---
 在 verilog语言中有三种赋值
 1. 连续赋值 `assign x=y;` 使用条件：只能在不是a procedure内部时使用（always block）

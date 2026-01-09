@@ -1,3 +1,7 @@
+---
+created: '2026-01-06'
+---
+
 ```c fork1.c
 #include<unistd.h>
 int main()

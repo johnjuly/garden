@@ -1,3 +1,7 @@
+---
+created: '2026-01-06'
+---
+
 - 行为建模描述了电路的行为
 
 ## coding guidelines

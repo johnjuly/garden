@@ -1,3 +1,7 @@
+---
+created: '2026-01-06'
+---
+
 
 echoes start as a cross in you
 

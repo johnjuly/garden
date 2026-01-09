@@ -1,3 +1,7 @@
+---
+created: '2026-01-06'
+---
+
 
 `int setitimer(int which,const struct itimerval *new_value,struct itimer_itimerval *old_value)`
 参数1：设计哪一个时钟，ITIMER_REAL ITIMER_VIRTUAL ITIMER_PROF

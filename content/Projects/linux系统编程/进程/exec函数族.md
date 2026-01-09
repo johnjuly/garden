@@ -1,3 +1,7 @@
+---
+created: '2026-01-06'
+---
+
 execute a file
 replace the current process image with a new process image.
 替换。忒修斯之船。七年之后，你的细胞。。。但是神经细胞 不会替换的。七年之后，你还是你吗？壳子，内容

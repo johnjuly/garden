@@ -1,3 +1,7 @@
+---
+created: '2026-01-06'
+---
+
 
 - container 就像是单片机烧写的程序。操作系统也带上了。
 - so 一个微服务架构，有成百上千的容器，他们 hosting a small part of  a larger application. container orchestration tools:Kubernetes来管理这些容器

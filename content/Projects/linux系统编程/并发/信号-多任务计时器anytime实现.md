@@ -1,3 +1,7 @@
+---
+created: '2026-01-06'
+---
+
 多个alarm.只有最后一个有效。![[Pasted image 20251101214132.png]]
 类似，微波炉设置，第一个人 3分钟，第二个人 5分钟。一定是最后一个事件起作用。
 anytimer.c+anytimer.h+main.c

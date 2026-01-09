@@ -1,3 +1,7 @@
+---
+created: '2026-01-06'
+---
+
 > register :描述一组触发器的术语
 
 ## 4 bit register

@@ -1,3 +1,7 @@
+---
+created: '2026-01-06'
+---
+
 > calling conventions
 
 函数调用 ；汇编的实现 ，c语言屏蔽的细节；两方实现

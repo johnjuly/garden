@@ -1,3 +1,7 @@
+---
+created: '2026-01-06'
+---
+
 instruction selection:
 
 > the process of translation llvm code presented to the code generator into target-specific machine instructions.there are several well-known ways to do this in the literature.llvm uses a selectiondag based instruction selector.
