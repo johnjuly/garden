@@ -18,7 +18,7 @@ const config: QuartzConfig = {
     locale: "zh-CN",
     baseUrl: "johnjuly.github.io/garden",
     ignorePatterns: ["private", "templates", ".obsidian", "dailynote"],
-    defaultDateType: "modified",
+    defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
