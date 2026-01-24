@@ -24,6 +24,9 @@ export const sharedPageComponents: SharedLayout = {
   ],
   footer: Component.Footer({
     links: {
+      "←": "https://xn--sr8hvo.ws/previous",
+      "🕸💍": "https://xn--sr8hvo.ws",
+      "→": "https://xn--sr8hvo.ws/next",
       GitHub: {
         url: "https://github.com/johnjuly",
         rel: "me",

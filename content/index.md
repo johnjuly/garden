@@ -1,14 +1,17 @@
 ---
 title: Bienvenue!
-created: '2026-01-06'
 ---
 
 欢迎来到 John 的数字花园！这里主要记录网上的见闻以及课堂的笔记。
 路径是以Para[^1]的方式来整理的。
 
+---
+
 ## 收藏一些的链接
 
 - [[Archieves/Bookmarks/bookmarks_categorized|看世界]]
+
+---
 
 ## 学习 相关
 
@@ -36,6 +39,8 @@ created: '2026-01-06'
 - [[Projects/linux系统编程/进程/大纲|进程管理]]
 - [[并发(信号、线程)|并发（线程+信号）]]
 
+---
+
 ## 上网见闻
 
 - [[扎伊尔]]
@@ -50,6 +55,8 @@ created: '2026-01-06'
 
 [[tool]]
 
+---
+
 ## 其他
 
 - [[reentrant - Google 搜索|Google搜索剪辑]]
@@ -58,10 +65,5 @@ created: '2026-01-06'
 ## 源自
 
 [参考的一个网友的网站](https://xuan-insr.github.io/neura-weaver/)
-
-探索世界：
-[← ](https://xn--sr8hvo.ws/previous)
-[🕸💍](https://xn--sr8hvo.ws) 
-[→](https://xn--sr8hvo.ws/next) 
 
 [^1]: 改造版本 其实是 piaa了
