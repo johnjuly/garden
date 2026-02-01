@@ -1,3 +1,18 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+// Sidebar search should span the full sidebar width (override default max-width).
+.sidebar.left .search {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+}
+
+// On mobile the left sidebar becomes a top bar (row layout); let the search block take remaining space.
+@media all and ($mobile) {
+  .sidebar.left > .flex-component {
+    flex: 1 1 auto;
+  }
+}

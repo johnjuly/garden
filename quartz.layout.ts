@@ -50,21 +50,28 @@ export const defaultContentPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Flex({
+      direction: "column",
+      gap: "0.5rem",
       components: [
         {
           Component: Component.Search(),
-          grow: true,
+          basis: "100%",
+          align: "stretch",
         },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
+        {
+          Component: Component.Flex({
+            gap: "0.5rem",
+            components: [{ Component: Component.Darkmode() }, { Component: Component.ReaderMode() }],
+          }),
+          basis: "100%",
+          align: "stretch",
+        },
       ],
     }),
     Component.Explorer(),
   ],
   right: [
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.Graph(),
-    Component.Backlinks(),
   ],
 }
 
@@ -75,12 +82,19 @@ export const defaultListPageLayout: PageLayout = {
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Flex({
+      direction: "column",
+      gap: "0.5rem",
       components: [
         {
           Component: Component.Search(),
-          grow: true,
+          basis: "100%",
+          align: "stretch",
         },
-        { Component: Component.Darkmode() },
+        {
+          Component: Component.Darkmode(),
+          basis: "100%",
+          align: "stretch",
+        },
       ],
     }),
     Component.Explorer(),
