@@ -4,8 +4,8 @@
 **非阻塞IO** ---阻塞IO  是不是死心眼？ ...
 
 >[!info]
-阻塞IO 信号章节，手册内容 man 2 read , errors:当前会出错的情况  
-假错的现象:
+>阻塞IO 信号章节，手册内容 man 2 read , errors:当前会出错的情况  
+  假错的现象:
 >1. EINTR 阻塞的系统调用；
 >2. EAGAIN 非阻塞方式  读打印机 现在没有数据 尝试 没有成功
 #linux man 7 最全的内容，解释。讲机制。 tcp socket

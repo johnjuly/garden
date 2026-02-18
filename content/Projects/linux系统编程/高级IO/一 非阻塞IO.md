@@ -187,3 +187,276 @@ make relay
 root 用户执行
 ctl alt f11 f12 
 一行的内容按ctl+c 放在缓冲区中不发出去
+
+
+---
+
+## 改成 中继 引擎
+
+
+io/adv/nonblock/relayer
+
+调用方 main.c
+实现 relay.c
+makefile
+```makefile
+CFLAGS+=-pthread
+LDFLAGS+=-pthread
+all:relayer
+relayer:relayer.o main.o
+	gcc $^ -o $@
+	
+clean:
+	rm -rf *.o relayer
+	
+```
+![[Pasted image 20260214193208.png]]
+
+- 两个文件描述符构成一个Job 。一万个job ,2万个 fd,状态机 12 和状态机21 。ulimit -a 需要先更改 open file 大小
+
+
+- 两对的实现
+
+```c relayer.h
+#ifndef RELAYER_H__
+#define RELAYER_H__
+
+#define REL_JOBMAX         10000
+
+enum
+{
+	STATE_RUNNING=1,
+	STATE_CANCELLED,
+	STATE_OVER
+};
+
+struct rel_state_st
+{
+	int state;
+	int fd1;
+	int fd2;
+	int64_t coutn12,count21;
+	struct timerval start,end;
+};
+
+
+//往数组里添加任务,返回数组下标
+int rel_addjob(int fd1,int fd2);
+/*
+*  return >=0       成功，返回当前任务ID
+*         ==-EINVAL 失败，参数非法
+*         ==-ENOSPC 失败，任务数组满
+*          ==-ENOMEM 失败，内存分配有误
+**/
+
+int rel_canceljob(int id);
+/*
+return == 0      成功，指定任务成功取消
+       ==-EINVAL 失败，参数非法
+       ==-EBUSY  失败，任务早已被取消
+*/
+
+//收尸 可以查看状态
+int int rel_waitjob(int id，struct rel_sta_st*);
+/*
+	return == 0      成功，指定任务已终止并返回状态
+	       ==-EINVAL 失败，参数非法
+*/
+
+int rel_stajob(int fd,struct rel_stat_st *)
+/*
+	return == 0        成功，指定任务状态已经返回
+	       ==-EINVAL   失败，参数非法
+
+*/
+#endif
+```
+
+
+
+- 对于 main.c 不再需要状态机 的定义 driver ，只需要调用方法，保留一个main函数。
+
+
+```c main.c
+#include <stdio.h>
+#include<stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <string.h>
+
+#define TTY1 "/dev/tty11"
+
+#define TTY2 "/dev/tty12"
+#define TTY3 "/dev/tty10"
+#define TTY4 "/dev/tty9"
+
+int main()
+
+{
+
+int fd1, fd2;
+int job1,
+
+fd1=open(TTY1,O_RDWR); //用户阻塞打开
+
+if(fd1<0)
+
+{
+
+perror("open()");
+
+exit(1);
+
+}
+
+//写提示性内容
+
+write(fd1,"TTY1\n",5);
+
+fd2=open(TTY2,O_RDWR|O_NONBLOCK) //用户非阻塞打开
+
+if(fd2<0)
+
+{
+
+peeror
+
+exit
+
+}
+
+write(fd2,"TTY2\n",5)
+
+job1=rel_addjob(fd1,fd2);
+
+if(job1<0)
+{
+	fprintf(strerr,"rel_addjob():%s\n",strerror(-job1));
+	exit(1);
+}
+
+fd3=open(TTY3,O_RDWR);
+if(fd3<0)
+{
+	perror("open()");
+	exit(1);
+}
+write(fd3,"TTY3\n",5);
+
+fd4=open(TTY4,O_RDWR);
+if(fd4<0)
+{
+	perror("open()");
+	exit(1);
+}
+write(fd4,"TTY4\n",5);
+
+
+job2=rel_addjob(fd3,fd4);
+if(job2<0)
+{
+	fprintf(stderr,"rel_addjob():%s\n",strerror(-job2));
+}
+
+while(1)
+	pause();
+close(fd2);
+close(fd1); 
+close(fd3);
+close(fd4);
+
+exit(0);
+
+}
+
+```
+
+
+- addjob的实现。添加任务，会用到当前任务的属性。在当前最大值中找空位。上限暴露给用户。在头文件中
+
+```c relay.c
+#include <pthread.h>
+
+
+//临界资源来使用，多线程实现 
+static struct rel_job_st* rel_job[REL_JOBMAX];
+static pthread_mutex_t mut_rel_job = PTHREAD_MUTEX_INITIALIZER;
+
+struct fsm_st
+
+{
+
+	int state;
+	int sfd;
+	int dfd;
+	char buf[BUFSIZE];
+	int len;
+	int pos;
+	char *errstr;
+	int64_t count;
+
+};
+
+...
+  
+struct rel_job_st
+{
+	int job_state;
+	int fd1;
+	int fd2;
+	struct rel_fsm_st fsm12,fsm21;
+	//struct timerval start,end;
+	int fd1_save,fd2_save
+};
+
+int rel_addjob(int fd1,int fd2)
+{
+	struct rel_job_st*me;
+	me=malloc(sizeof(*me));
+	if(me == NULL)
+		return -ENOMEM;
+	//成员初始化
+	me->fd1=fd1;
+	me->fd2=fd2;
+	me->job_state=STATE_RUNNING;
+	
+	//保证非阻塞
+	me->fd1_save=fcntl(me->fd1,F_GETFL);
+	fcntl(me->fd1_save,F_SETFL,me->fd1_save|O_NONBLOCK);
+	me->fd2_save=fcntl(me->fd2,F_GETFL);
+	fcntl(me->fd2_save,F_SETFL,me->fd2_save|O_NONBLOCK);
+	
+	me->fsm12.sfd=me->fd1;
+	me->fsm12.dfd=me->fd2;
+	me->fsm12.state=STATE_R;
+	
+	me->fsm21.sfd=me->fd2;
+	me->fsm21.dfd=me->fd1;
+	me->fsm12.state=STATE_R;
+	
+	//找空位;
+	
+	
+	pthread_mutex_lock(&mut_rel_job);
+	pos=get_free_pos_unlocked();
+	if(pos<0)
+	{
+		pthread_mutex_unlock(&mut_rel_job);
+		//各种恢复
+		fcntl(me->fd1,F_SETFL,me->fd1_save);
+		fcntl(me->fd2.F_SETFL,me->fd2_save);
+		free(me);
+		return -ENOSPC;
+	}
+	
+	rel_job[pos]=me;
+	
+	pthread_mutex_unlock(&mut_rel_job);
+}
+
+int rel_canclejob
+
+
+```

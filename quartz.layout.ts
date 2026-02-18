@@ -61,18 +61,19 @@ export const defaultContentPageLayout: PageLayout = {
         {
           Component: Component.Flex({
             gap: "0.5rem",
-            components: [{ Component: Component.Darkmode() }, { Component: Component.ReaderMode() }],
+            components: [
+              { Component: Component.Darkmode() },
+              { Component: Component.ReaderMode() },
+            ],
           }),
           basis: "100%",
           align: "stretch",
         },
       ],
     }),
-    Component.Explorer(),
+    Component.RecentNotes(),
   ],
-  right: [
-    Component.DesktopOnly(Component.TableOfContents()),
-  ],
+  right: [Component.DesktopOnly(Component.TableOfContents())],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
@@ -97,7 +98,7 @@ export const defaultListPageLayout: PageLayout = {
         },
       ],
     }),
-    Component.Explorer(),
+    Component.RecentNotes(),
   ],
   right: [],
 }
