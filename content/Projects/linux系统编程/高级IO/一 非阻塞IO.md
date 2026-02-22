@@ -1,4 +1,4 @@
-**数据中继**   两个设备(两个文件 两个用户 两个server) 数据交换
+**数据中继** relay.c   两个设备(两个文件 两个用户 两个server) 数据交换
 场景：
 - 输入网址，登录网站 下载资料or提交文档 ；
 - 流式套接字, 发送数据包-ack-下一个数据包
@@ -192,7 +192,7 @@ ctl alt f11 f12
 ---
 
 ## 改成 中继 引擎
-
+> relayer文件夹
 
 io/adv/nonblock/relayer
 
@@ -204,7 +204,7 @@ CFLAGS+=-pthread
 LDFLAGS+=-pthread
 all:relayer
 relayer:relayer.o main.o
-	gcc $^ -o $@
+	gcc $^ -o $@ $(CFLAGS) $(LDFLAGS)
 	
 clean:
 	rm -rf *.o relayer
@@ -216,7 +216,7 @@ clean:
 
 
 - 两对的实现
-
+最多管理一万个任务，两万个文件描述符
 ```c relayer.h
 #ifndef RELAYER_H__
 #define RELAYER_H__
@@ -285,6 +285,7 @@ int rel_stajob(int fd,struct rel_stat_st *)
 #include <fcntl.h>
 #include <errno.h>
 #include <string.h>
+#include <relayer.h>
 
 #define TTY1 "/dev/tty11"
 
@@ -376,13 +377,15 @@ exit(0);
 
 - addjob的实现。添加任务，会用到当前任务的属性。在当前最大值中找空位。上限暴露给用户。在头文件中
 
-```c relay.c
+```c relayer.c
 #include <pthread.h>
-
+#include<string.h>
+#include<relayer.h>
 
 //临界资源来使用，多线程实现 
 static struct rel_job_st* rel_job[REL_JOBMAX];
 static pthread_mutex_t mut_rel_job = PTHREAD_MUTEX_INITIALIZER;
+static pthread_once_t init_once=PTHREAD_ONCE_INIT;
 
 struct fsm_st
 
@@ -411,9 +414,62 @@ struct rel_job_st
 	int fd1_save,fd2_save
 };
 
+static void *thr_relayer(void* p)
+{
+
+	while(1)
+	{
+	pthread_mutex_lock(&mut_rel_job);
+	for(i=0;i<REL_JOBMAX;i++)
+	{
+		if(rel_job[i]!=NULL)
+		{
+			if(rel_job[i]->job_state==STATE_RUNNING)
+			{
+
+				fsm_driver(&rel_job[i]->fsm12);
+				fsm_driver(&rel_job[i]->fsm21);
+				if(rel_job[i]->fsm12.state==STATE_T&&rel_job[i]->fsm21.state==STATE_T)
+				rel_job[i]->job_state= STATE_OVER;
+			}
+		}
+	}
+	pthread_mutex_unlock(&mut_rel_job);
+	}
+}
+
+//module_unload
+
+static void module_load(void)
+{
+	//创建一个线程，永远推状态机，类似构造函数
+	pthread_t tid_relayer;
+err=pthread_create(&tid_relayer,NULL,thr_relayer,NULL
+	if(err)
+	{
+		fprintf(stderr,"pthread_create():%s\n",strerror(err));
+		exit(1);
+	}
+}
+
+static get_free_pos_unlocked()
+{
+	for(i=0;i<REL_JOBMAX;i++)
+	{
+		if(rel_job[i]==NULL)
+			return i;
+	}
+	//没有空位
+	return -1;
+}
+
+
 int rel_addjob(int fd1,int fd2)
 {
 	struct rel_job_st*me;
+	
+	pthread_once(&init_once,module_load);//动态模块单次初始化加载
+	
 	me=malloc(sizeof(*me));
 	if(me == NULL)
 		return -ENOMEM;
@@ -460,3 +516,10 @@ int rel_canclejob
 
 
 ```
+
+- module_load
+
+
+
+io密集型任务，非重负载；
+忙等
