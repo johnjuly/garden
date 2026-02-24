@@ -71,7 +71,7 @@ export const defaultContentPageLayout: PageLayout = {
         },
       ],
     }),
-    Component.RecentNotes(),
+    Component.RecentNotes({ limit: 4 }),
   ],
   right: [Component.DesktopOnly(Component.TableOfContents())],
 }
