@@ -2,7 +2,7 @@
 tags:
   - 工具
   - moc
-aliases:
+created: "2026-01-06"
 ---
 
 [[linux命令|linux命令]]

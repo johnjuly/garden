@@ -1,12 +1,19 @@
+---
+created: "2026-02-22"
+---
+
 ## select
+
 ![[Pasted image 20260222145658.png]]
 提供的方法：清除，判断，添加，清零。
 类似信号的*sigemptyset*
 
-目录：adv/select 
-拷贝relay.c  两个设备通信 忙等
-更改程序  while 忙等 更改。布置监视任务
+目录：adv/select
+拷贝relay.c 两个设备通信 忙等
+更改程序 while 忙等 更改。布置监视任务
+
 - select 可以做安全的休眠 设置 -1 nfd;
+
 ```c relay.c
 
 #include <stdio.h>
@@ -171,7 +178,7 @@ fsm21.sfd=fd2;
 
 fsm21.dfd=fd1;
 
-  
+
 
 while(fsm12.state!=STATE_T||fsm21.state!=STATE_T)
 
@@ -189,8 +196,8 @@ while(fsm12.state!=STATE_T||fsm21.state!=STATE_T)
 	if(fsm21.state == STATE_W)
 		FD_SET(fsm21.dfd,&wset);
 	rset,wset;
-	
-	//进行监视 
+
+	//进行监视
 	if(select(max(fd1,fd2)+1,&rset,&wset,NULL,NULL)<0)//null 为忙等的时间
 	{
 		if(errno == EINTR)
@@ -198,9 +205,9 @@ while(fsm12.state!=STATE_T||fsm21.state!=STATE_T)
 		perror("select()");
 		exit(1);
 	}
-	
+
 	//查看监视结果
-	
+
 		//有条件的推动  发生感兴趣的动作
 	if(FD_ISSET(fd1,&rset)||FD_ISSET(fd2,&wset))
 		fsm_driver(&fsm12); //fd1可读 fd2可写
@@ -210,9 +217,9 @@ while(fsm12.state!=STATE_T||fsm21.state!=STATE_T)
 }
 
 	//文件状态恢复
-	
+
 	fcntl(fd1,F_SETFL,fd1_save);
-	
+
 	fcntl(fd2,F_SETFL,fd2_save);
 
 }
@@ -221,13 +228,12 @@ while(fsm12.state!=STATE_T||fsm21.state!=STATE_T)
 
 ```
 
-
 select 用来监视文件描述符的行为，当文件描述符发生了感兴趣的行为或者达到了感兴趣的状态 函数返回 有目的地推动状态机
 没有考虑到异常处理状态
-加一条线 当前状态>3  ex推动到t态 无条件推动;线上有条件推动 线下为无条件推动
+加一条线 当前状态>3 ex推动到t态 无条件推动;线上有条件推动 线下为无条件推动
 
 ```c
-enum 
+enum
 {
 	STATE_R=1,
 	STATE_W,
@@ -236,7 +242,7 @@ STATE_AUTO,
 	STATE_T
 }
 
-//监视的时候 
+//监视的时候
 	//读写的状态 才监视
 if(fsm12.state<STATE_AUTO || fsm21.state<STATE_AUTO)
 {
@@ -252,8 +258,8 @@ if(FD_ISSET(fd2,&rset)||FD_ISSET(fd1,&wset)||fsm21.state>STATE_AUTO)
 
 ```
 
-
 ## 问题
-- 监视位置和结果相同的位置  三个集合（组织思路：事件为单位 且单一 读写 其他的都为异常） 读写集合，异常集合 ；出了假错 要重新布置现场
-- int nfds 溢出  大小限制 不超过 有符号数整形大小
-- 
+
+- 监视位置和结果相同的位置 三个集合（组织思路：事件为单位 且单一 读写 其他的都为异常） 读写集合，异常集合 ；出了假错 要重新布置现场
+- int nfds 溢出 大小限制 不超过 有符号数整形大小
+-

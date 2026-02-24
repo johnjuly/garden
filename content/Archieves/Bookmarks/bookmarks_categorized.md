@@ -1,5 +1,5 @@
 ---
-created: '2026-01-06'
+created: "2026-01-06"
 ---
 
 # 分类书签收藏
@@ -33,11 +33,9 @@ created: '2026-01-06'
 - [操作系统：设计与实现 (2023 春季学期)](https://jyywiki.cn/OS/2023/index.html)
 - [Michael Kerrisk - man7.org](https://www.man7.org/index.html)
 - [初识 Linux - Linux 101](https://101.lug.ustc.edu.cn/Ch01/)
-- [Yanyan's Wiki](https://jyywiki.cn/)
 - [PA0 - 世界诞生的前夜: 开发环境配置 · GitBook](https://nju-projectn.github.io/ics-pa-gitbook/ics2024/PA0.html)
 - [Linux 内核教学 — Linux 系统内核文档](https://linux-kernel-labs-zh.xyz/)
 - [Linux C 编程一站式学习](https://akaedu.github.io/book/)
-- [OS Labs](http://oslab.mobisys.cc/)
 - [Operating System Concepts - Practice Exercises](https://codex.cs.yale.edu/avi/os-book/OS10/practice-exercises/index-solu.html)
 - [lec5 在线练习 · os_course_exercises](https://chyyuu.gitbooks.io/os_course_exercises/content/all/03-1-quiz.html)
 - [物理内存管理 · os_course_QA](https://chyyuu.gitbooks.io/os_course_qa/content/03-pmm.html)
@@ -64,22 +62,6 @@ created: '2026-01-06'
 - [Git - 关于版本控制](https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%85%B3%E4%BA%8E%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6)
 - [Lab 1 - Git Immersion](https://gitimmersion.com/lab_01.html)
 
-### 数据库与分布式系统
-
-- [3.1 B+ 树介绍-V1.0.0-开发者入门教程文档-分布式数据库使用文档](https://www.oceanbase.com/docs/community-developer-quickstart-0000000000660128)
-
-### rust编程语言
-
-- [Rust 共学学习手册](https://hon-zone.notion.site/Rust-23e577647e87802b9a1fea075955ff69)
-- [Introduction - Rust By Example](https://doc.rust-lang.org/rust-by-example/index.html)
-- [Rustlings](https://rustlings.rust-lang.org/)
-
-### Web 开发
-
-- [Full stack open](https://fullstackopen.com/en/)
-- [Introduction to the Back End | The Odin Project](https://www.theodinproject.com/lessons/nodejs-introduction-to-the-back-end)
-- [Setting up the Flask project — MySQL for Python Developers — PlanetScale](https://planetscale.com/learn/courses/mysql-for-python-developers/building-a-flask-app-with-mysql/setting-up-the-flask-project?autoplay=1)
-
 ### 开发工具
 
 - [IEEE-754 Floating Point Converter](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
@@ -87,7 +69,7 @@ created: '2026-01-06'
 - [regex101: build, test, and debug regex](https://regex101.com/)
 - [简介 | Docker 从入门到实践](https://vuepress.mirror.docker-practice.com/introduction/)
 
-## 🔢 数学
+## 数学
 
 ### 数学学习资源
 
@@ -107,7 +89,7 @@ created: '2026-01-06'
 - [TeXnique](https://texnique.xyz/)
 - [Learn LaTeX online for free in beginner friendly lessons | learnlatex.org](https://www.learnlatex.org/en/)
 
-## 🎵 音乐
+## 音乐
 
 ### 音乐学习
 
@@ -126,7 +108,7 @@ created: '2026-01-06'
 - [One Album A Day - 1001 Albums You Must Hear Before You Die](https://1001albumsgenerator.com/1001albumschan)
 - [Musicmap | 流行音乐流派的谱系和历史](https://musicmap.info/)
 
-## 🎨 设计与艺术
+## 设计与艺术
 
 ### 设计资源
 
@@ -151,59 +133,20 @@ created: '2026-01-06'
 - [藏品 - 故宫博物院](https://www.dpm.org.cn/explore/collections.html)
 - [我的作品归档集 (落日间)](https://xpaidia.com/)
 
-## 📖 文学与阅读
+## 文学与阅读
 
 ### 文学资源
 
 - [Paris Review - Writers, Quotes, Biography, Interviews, Artists](https://www.theparisreview.org/)
 - [卡尔维诺中文站 - Italo Calvino in China](http://www.ruanyifeng.com/calvino/)
-- [卡尔维诺中文站 - Italo Calvino in China](https://www.ruanyifeng.com/calvino/)
 - [joyceproject.com](https://www.joyceproject.com/)
-- [每日精选-中国诗歌网](https://www.zgshige.com/xmrpd/mrjx/)
 - [PoemWiki 诗歌维基](https://poemwiki.org/)
-- [萧萧*沈从文*虚阁网](https://www.xuges.com/xdmj/scw/xyj/01.htm)
-- [诗人痖弦逝世丨歌人留下破碎的琴韵](https://mp.weixin.qq.com/s/1jTG7tRCBurCO3rRgBI69Q)
-
-### 阅读平台
-
-- [Free eBooks | Project Gutenberg](https://www.gutenberg.org/)
-- [爱教材平台](https://www.itextbook.cn/f/index)
-- [世界数字图书馆主页](https://www.wdl.org/zh/)
-- [译言古登堡计划](http://g.yeeyan.com/)
-- [苦瓜书盘](http://kgbook.com/)
-- [XmSearch 熊猫搜索-聚合文档搜索导航](https://xmsoushu.com/#/)
-- [阅读链云盘](https://cloud.yuedu.pro/#/account/register)
-- [Download PDF magazines - Magazines Commumity!](https://downmagaz.net/)
-- [LoreFree - 首个基于 EOS 和 IPFS 的去中心化知识共享社区](https://lorefree.com/)
 
 ### 杂志与期刊
 
-- [三联生活周刊*2018 年 51 期*参考网](https://www.fx361.com/bk/slshzk/201851.html)
-- [过期杂志阅读平台\_参考网](https://www.fx361.com/)
 - [🏰 城堡阅读杂志](https://www.yuque.com/cbyd/chengbao)
 
-## 🧪 科学
-
-### 化学
-
-- [Aromaticity rules | Nature Chemistry](https://www.nature.com/articles/s41557-022-00961-w#Sec8)
-- [重现化学](https://www.envisioningchemistry.cn/)
-- [KingDraw 官网\_化学结构式编辑器](http://www.kingdraw.com/)
-- [有机化学](https://organic.cpu.edu.cn/~partridge/OrgChem/)
-- [Chemistry Stack Exchange](https://chemistry.stackexchange.com/)
-
-### 物理
-
-- [大学物理学习指导](http://www.phycai.sjtu.edu.cn/pub/xxzd/)
-- [大物实验报告 - 咸鱼暄的代码空间](https://xuan-insr.github.io/other_courses/big_physics_exp/)
-- [物含妙理——高中物理教学探讨](https://enjoyphysics.cn/)
-
-### 其他科学
-
-- [爱玩的天才数学家康威](https://www.global-sci.org/intro/article_detail/mc/22165.html)
-- [HamCQ 手册](https://docs.hamcq.cn/)
-
-## 🌐 语言学习
+## 语言学习
 
 ### 中文学习
 
@@ -222,53 +165,7 @@ created: '2026-01-06'
 - [Study English, Stay Informed - Engoo Daily News](https://engoo.com/app/daily-news)
 - [声同小语种论坛 - 声同此声，心同此心！ - Powered by phpwind](http://www.somdom.com/)
 
-## 🎮 娱乐与游戏
-
-### 游戏
-
-- [Gartic Phone - 传话游戏](https://garticphone.com/zh-CN)
-- [MWBD - Games](https://mathgameswithbaddrawings.com/games)
-- [Neal.fun](https://neal.fun/)
-- [Bored? Press the Bored Button!](https://www.boredbutton.com/)
-
-### 娱乐资源
-
-- [影猫の仓库 | 免费观影第一站！](https://ymck.me/)
-- [BL 解析-Vip 视频在线解析](https://vip.bljiex.com/?v=)
-- [Vite + Vue + TS](https://tool.liumingye.cn/music/?page=searchPage)
-- [最新电影高清迅雷下载\_720P_1080P - 迅雷电影天堂](https://xunlei8.cc/)
-- [天天静听](http://47.112.23.238/)
-- [BL 解析-Vip 视频在线解析](https://vip.bljiex.cc/)
-- [首页 - 人人影视下载分享站](https://yyets.click/home)
-- [字幕库(zimuku,SrtKu) -- 字幕下载网站](https://srtku.com/)
-- [观影 GYING](https://www.gying.net/)
-
-## 🏫 教育机构
-
-### 其他教育
-
-- [核心课程-武汉大学通识教育中心](https://gec.whu.edu.cn/tskc/hxkc.htm)
-- [Class Materials [Student Access] - Google 云端硬盘](https://drive.google.com/drive/folders/1-iD0rZDhGBbQyIIYF3VOPZxAn2GVkWdB)
-- [Homework 1 Functions, Control | CS 自学社区](https://www.learncs.site/docs/curriculum-resource/cs61a/homework/hw01)
-- [Phase 1: Lec 1 - Lec 14](https://www.yuque.com/oneko/something/cs61a_p1)
-- [15-213: Introduction to Computer Systems / Schedule Fall 2015](https://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/schedule.html)
-
-## 🔍 搜索与导航
-
-### 搜索工具
-
-- [虫部落 - 让搜索更简单](https://www.chongbuluo.com/)
-- [科塔学术 - 科研与学术资源导航平台 | www.sciping.com](https://www.sciping.com/)
-- [虫部落快搜 - 搜索快人一步 - Wikipedia](https://search.chongbuluo.com/)
-- [全渠道搜索\_思谋上网导航](https://dir.scmor.com/)
-- [搜索](http://discx.yuntu.io/book/list)
-
-### 导航网站
-
-- [见室优质信息源导航](https://buerc.notion.site/1c9e865c15744f2ab88d9d3a382b2170)
-- [AI 导航站 | 收录了国内外 2000+优质 AI 工具，人工智能工具和模型，整理了 AI 对话聊天、AI 绘画设计、AI 视频制作、AI 写作办公、AI 编程开发等各类工具，还包括最新的 AI 资讯、AI 绘画教程、AI 工具技巧等实用内容。在这里，AI 领域的专家和初学者都能轻松找到心仪的 AI 工具和学习资源。](https://www.naviai.cn/)
-
-## 📰 新闻与资讯
+## 新闻与资讯
 
 ### 新闻平台
 
@@ -280,10 +177,10 @@ created: '2026-01-06'
 ### RSS 与订阅
 
 - [RSS Source | RSS 订阅源推荐](https://rss-source.com/)
-- [(1) 首页 · FreshRSS](https://freshrss.mubibai.com/i/)
+- [FreshRSS](https://freshrss.mubibai.com/i/)
 - [Zenfeed](https://zenfeed.xyz/)
 
-## 🛠️ 工具与服务
+## 工具与服务
 
 ### 在线工具
 
@@ -301,7 +198,7 @@ created: '2026-01-06'
 - [NextChat - Open Source, Your Keys Your Rules, Pay As You Go](https://nextchat.club/tools)
 - [DeepWiki | AI documentation you can talk to, for every repo](https://deepwiki.com/)
 
-## 📝 博客与个人网站
+## 博客与个人网站
 
 ### 技术博客
 
@@ -318,7 +215,7 @@ created: '2026-01-06'
 - [About · Palimpsest](https://luis.apiolaza.net/ego-sum/)
 - [Bellwoods](https://bellwoods.xyz/)
 
-## 🎯 其他
+## 其他
 
 ### 哲学与思想
 
@@ -337,12 +234,6 @@ created: '2026-01-06'
 - [中国文化小站](https://cyanlibra.notion.site/cyanlibra/61d33aa0c6254f26825d353045936a7d)
 - [天津](https://cyanlibra.notion.site/184676c8a05a485b977e309387d9a563)
 
-### 技术社区
-
-- [good first task](https://phabricator.wikimedia.org/tag/good_first_task/)
-- [An IndieWeb Webring](https://xn--sr8hvo.ws/)
-- [Deuxfleurs : fabriquons un internet convivial](https://deuxfleurs.fr/)
-
 ### 其他资源
 
 - [COMM 2140 UGEC 2634](https://mediachina.today/)
@@ -351,16 +242,10 @@ created: '2026-01-06'
 - [Tiny Web Animation 时事通讯](https://tinyletter.com/animation/archive)
 - [Dashboard - EdClub](https://www.typingclub.com/sportal/)
 - [Configure two-factor authentication](https://github.com/settings/two_factor_authentication/setup/intro)
-- [数字教育双百工程 - HD 高清](https://www.shutu.tv/school/377/dedhp/hd/resource/92)
-- [《北斗》 第三集 时空文明](https://tv.cctv.com/2020/10/08/VIDEeI4mnQDVzsvpL53a17Zc201008.shtml)
+
 - [History of Hallmarking | The Goldsmiths' Company Assay Office](https://www.assayofficelondon.co.uk/about-us/history-of-hallmarking)
 - [Programming | Explorable Explanations](https://explorabl.es/programming/)
 - [v2.jokeapi.dev/joke/Any?safe-mode](https://v2.jokeapi.dev/joke/Any?safe-mode)
 - [AlgoMaster Newsletter | Ashish Pratap Singh | Substack](https://blog.algomaster.io/)
 - [Rolling the Dice with CSS random() | WebKit](https://webkit.org/blog/17285/rolling-the-dice-with-css-random/)
-- [竹白百科](https://www.zhubai.wiki/)
 - [nian](https://docs.qq.com/doc/DZkVOelRPbkhUZHJB)
-- [修同学 Aurora (长期更新)](http://xiutongxue.ysepan.com/)
-- [世界 - 奇趣网站收藏家](https://fuun.fun/world)
-
----

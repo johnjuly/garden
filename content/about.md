@@ -1,6 +1,6 @@
 ---
 title: about
-created: "2026-1-24"
+created: "2026-01-06"
 ---
 
 ## 关于我

@@ -1,24 +1,33 @@
-**数据中继** relay.c   两个设备(两个文件 两个用户 两个server) 数据交换
+---
+created: "2026-02-08"
+---
+
+**数据中继** relay.c 两个设备(两个文件 两个用户 两个server) 数据交换
 场景：
+
 - 输入网址，登录网站 下载资料or提交文档 ；
 - 流式套接字, 发送数据包-ack-下一个数据包
 - 域名拦截，访问baidu.com,广告页面先出现几秒，放大数据中继模型 中间人攻击？
-- 父进程 管理 两万对设备之间进行对话  负载重-> fork 多个子进程  负责 一定数量设备对话，父进程管理子进程 -> 子进程放在不同的主机上 负载均衡 滚雪球
-模型：
-设备l  设备r 
-方法：
-1.  读左 写右  读右 写左  rl-wr-rr-wl   成为一个任务 一个人完成 
-2. 分成两个任务 第一个任务负责 rl-wr ;第二个任务 rr-wl
-**mycpy** 重构 ： 多个 一起工作  不冲突
+- 父进程 管理 两万对设备之间进行对话 负载重-> fork 多个子进程 负责 一定数量设备对话，父进程管理子进程 -> 子进程放在不同的主机上 负载均衡 滚雪球
+  模型：
+  设备l 设备r
+  方法：
 
-c是工具  用它 完成功能 
+1.  读左 写右 读右 写左 rl-wr-rr-wl 成为一个任务 一个人完成
+2.  分成两个任务 第一个任务负责 rl-wr ;第二个任务 rr-wl
+    **mycpy** 重构 ： 多个 一起工作 不冲突
+
+c是工具 用它 完成功能
 讲的是机制，像字典
 
 ---
+
 该目录下`io/adv/nonblock`
 
 `relay.c`
+
 - 打开的动作，open ；打开方式 非阻塞io 用户打开方式不确定，main函数模拟用户的操作，在main函数之外保证是以非阻塞方式操作，使用fctl;中间调用函数
+
 ```c relay.c
 #include <stdio.h>
 #include<stdlib.h>
@@ -124,12 +133,12 @@ static void relay(int fd1,int fd2)
 	fcntl(fd1,F_SETFL,fd1_save|O_NONBLOK);
 	fd2_save=fcntl(fd2,F_GETFL);
 	fcntl(fd2,F_SETFL,fd2_save|O_NONBLOCK);
-	
+
 	//状态初始化
 	fsm12.state=STATE_R;
 	fsm12.sfd=fd1;
 	fsm12.dfd=fd2;
-	
+
 	fsm21.state=STATE_R;
 	fsm21.sfd=fd2;
 	fsm21.dfd=fd1;
@@ -139,8 +148,8 @@ static void relay(int fd1,int fd2)
 		fsm_driver(&fsm12);
 		fsm_driver(&fsm21);
 	}
-	
-	
+
+
 	//文件状态恢复
 	fcntl(fd1,F_SETFL,fd1_save);
 	fcntl(fd2,F_SETFL,fd2_save);
@@ -150,7 +159,7 @@ int main()
 {
 	int fd1, fd2;
 	fd1=open(TTY1,O_RDWR); //用户阻塞打开
-	
+
 	if(fd1<0)
 	{
 		perror("open()");
@@ -158,8 +167,8 @@ int main()
 	}
 	//写提示性内容
 	write(fd1,"TTY1\n",5);
-	
-	
+
+
 	fd2=open(TTY2,O_RDWR|O_NONBLOCK)  //用户非阻塞打开
 	if(fd2<0)
 	{
@@ -167,7 +176,7 @@ int main()
 		exit
 	}
 	write(fd2,"TTY2\n",5)
-	
+
 	relay(fd1,fd2);
 	close(fd2);
 	close(fd1)
@@ -176,22 +185,21 @@ int main()
 ```
 
 - 有限状态机，若改需求，在图上改圈 #todo #截图
-- 两个状态机 一个 读左写右  一个读右写左；状态机数据结构的封装  copy 的封装,mycopy的现场
-- 确保进入与出去的状态是一致的，  relay()前后 文件打开方式不变 1 阻塞 2 非阻塞。 relay 函数的最后 恢复文件状态 使用`fcntl`
+- 两个状态机 一个 读左写右 一个读右写左；状态机数据结构的封装 copy 的封装,mycopy的现场
+- 确保进入与出去的状态是一致的， relay()前后 文件打开方式不变 1 阻塞 2 非阻塞。 relay 函数的最后 恢复文件状态 使用`fcntl`
 - **思路** ：
-	- main函数用来模拟用户的操作：打开两个设备，调用数据中继函数
-	- relay函数中 在所有实现之前，保证两个文件是以非阻塞方式实现，结束时恢复之前的状态。中间建立两个状态机，初始化状态为读态，分别把源和目标指定好。不停推两个状态机直到T态，死循环。
-
+  - main函数用来模拟用户的操作：打开两个设备，调用数据中继函数
+  - relay函数中 在所有实现之前，保证两个文件是以非阻塞方式实现，结束时恢复之前的状态。中间建立两个状态机，初始化状态为读态，分别把源和目标指定好。不停推两个状态机直到T态，死循环。
 
 make relay  
 root 用户执行
-ctl alt f11 f12 
+ctl alt f11 f12
 一行的内容按ctl+c 放在缓冲区中不发出去
-
 
 ---
 
 ## 改成 中继 引擎
+
 > relayer文件夹
 
 io/adv/nonblock/relayer
@@ -199,24 +207,26 @@ io/adv/nonblock/relayer
 调用方 main.c
 实现 relay.c
 makefile
+
 ```makefile
 CFLAGS+=-pthread
 LDFLAGS+=-pthread
 all:relayer
 relayer:relayer.o main.o
 	gcc $^ -o $@ $(CFLAGS) $(LDFLAGS)
-	
+
 clean:
 	rm -rf *.o relayer
-	
+
 ```
+
 ![[Pasted image 20260214193208.png]]
 
 - 两个文件描述符构成一个Job 。一万个job ,2万个 fd,状态机 12 和状态机21 。ulimit -a 需要先更改 open file 大小
 
-
 - 两对的实现
-最多管理一万个任务，两万个文件描述符
+  最多管理一万个任务，两万个文件描述符
+
 ```c relayer.h
 #ifndef RELAYER_H__
 #define RELAYER_H__
@@ -272,10 +282,7 @@ int rel_stajob(int fd,struct rel_stat_st *)
 #endif
 ```
 
-
-
 - 对于 main.c 不再需要状态机 的定义 driver ，只需要调用方法，保留一个main函数。
-
 
 ```c main.c
 #include <stdio.h>
@@ -364,7 +371,7 @@ if(job2<0)
 while(1)
 	pause();
 close(fd2);
-close(fd1); 
+close(fd1);
 close(fd3);
 close(fd4);
 
@@ -374,7 +381,6 @@ exit(0);
 
 ```
 
-
 - addjob的实现。添加任务，会用到当前任务的属性。在当前最大值中找空位。上限暴露给用户。在头文件中
 
 ```c relayer.c
@@ -382,7 +388,7 @@ exit(0);
 #include<string.h>
 #include<relayer.h>
 
-//临界资源来使用，多线程实现 
+//临界资源来使用，多线程实现
 static struct rel_job_st* rel_job[REL_JOBMAX];
 static pthread_mutex_t mut_rel_job = PTHREAD_MUTEX_INITIALIZER;
 static pthread_once_t init_once=PTHREAD_ONCE_INIT;
@@ -403,7 +409,7 @@ struct fsm_st
 };
 
 ...
-  
+
 struct rel_job_st
 {
 	int job_state;
@@ -467,9 +473,9 @@ static get_free_pos_unlocked()
 int rel_addjob(int fd1,int fd2)
 {
 	struct rel_job_st*me;
-	
+
 	pthread_once(&init_once,module_load);//动态模块单次初始化加载
-	
+
 	me=malloc(sizeof(*me));
 	if(me == NULL)
 		return -ENOMEM;
@@ -477,24 +483,24 @@ int rel_addjob(int fd1,int fd2)
 	me->fd1=fd1;
 	me->fd2=fd2;
 	me->job_state=STATE_RUNNING;
-	
+
 	//保证非阻塞
 	me->fd1_save=fcntl(me->fd1,F_GETFL);
 	fcntl(me->fd1_save,F_SETFL,me->fd1_save|O_NONBLOCK);
 	me->fd2_save=fcntl(me->fd2,F_GETFL);
 	fcntl(me->fd2_save,F_SETFL,me->fd2_save|O_NONBLOCK);
-	
+
 	me->fsm12.sfd=me->fd1;
 	me->fsm12.dfd=me->fd2;
 	me->fsm12.state=STATE_R;
-	
+
 	me->fsm21.sfd=me->fd2;
 	me->fsm21.dfd=me->fd1;
 	me->fsm12.state=STATE_R;
-	
+
 	//找空位;
-	
-	
+
+
 	pthread_mutex_lock(&mut_rel_job);
 	pos=get_free_pos_unlocked();
 	if(pos<0)
@@ -506,9 +512,9 @@ int rel_addjob(int fd1,int fd2)
 		free(me);
 		return -ENOSPC;
 	}
-	
+
 	rel_job[pos]=me;
-	
+
 	pthread_mutex_unlock(&mut_rel_job);
 }
 
@@ -518,8 +524,6 @@ int rel_canclejob
 ```
 
 - module_load
-
-
 
 io密集型任务，非重负载；
 忙等
