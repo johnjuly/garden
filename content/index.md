@@ -63,7 +63,7 @@ created: "2026-01-06"
 ## 其他
 
 - [[reentrant - Google 搜索|Google搜索剪辑]]
-- [[about|关于本网站]]
+- [[about|关于]]
 
 ## 源自
 
