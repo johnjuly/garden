@@ -41,6 +41,70 @@ xxx->msg/sem/shm;
 msgsnd
 msgrcv
 ### 2. semaphore arrays
+semget();
+semop();
+semctl();
 ### 3. shared memory
+shmget();
+shmop();
+shmctl();
 
 ## 3 . 网络套接字socket 跨主机 
+
+### 讨论： 跨主机的传输要注意的问题
+1. 字节序问题
+	1. 大端: 低地址处放高字节
+	2. 小端:低地址处放低字节 (x86)
+		发数据总是从低地址开始发
+	区分，不再纠结大端小端
+	主机字节序:host
+	网络字节序:network
+	解决：\_to\_: htons,htonl,ntohs,ntohl
+
+
+2. 对齐
+```c
+struct
+{
+	int i;
+	float f;
+	char ch;
+};
+```
+编译器自动对齐(32bit 4字节对齐) 目的：加速 节省 取址周期
+解决： 不对齐 ，宏
+
+3. 类型长度问题
+	int 字节长度？16bit 32bit
+	char 有无符号
+	解决：int32_t ,uint32_t,int64_t,int8_t/uint8_t(char)
+
+### SOCKET是什么
+> 中间层
+
+应用层(http)与网络层协议(ipv4...)之间
+抽象成文件描述符，打开 关闭 读写 定位
+IO是一切的基础
+![[Pasted image 20260322200153.png]]
+
+
+协议族*domain*中的某一个协议 _protocol_ 来完成某一类型 _type_ 的传输
+
+### 两种传递方式：
+#### _SOCK_DGRAM_ 报式套接字：
+- 数据的分组，完整性。传一个学生的结构体。每个结构体之间清晰的边界。无连接，不可靠。
+>[!note] 用到的函数
+>	socket();
+>	bind();
+>	sendto();
+>	rcvfrom();
+>	inet_pton();
+>	inet_ntop();
+>
+- 多点通讯
+	- 广播
+		- 全网广播
+		- 子网广播
+	- 多播/组播
+#### _SOCK_STREAM_ 流式套接字：
+	- 不代表 不丢包，收到的一定是有序的，可靠的，双工的，基于连接（点对点，一对一。or 三次握手）的字节流（数据没有严格边界，char）。
