@@ -236,3 +236,103 @@ prinf(rbufp->)
 
 
 ```
+
+
+
+## broadcast 广播
+255.255.255.255
+全网广播,默认禁止。
+`man 7 socket` socket options.
+创建一个socket之后对socket的属性进行更改
+
+### snder.c
+
+```c snder.c
+int val=1;
+if(setsockopt(sd,SOL_SOCKET,SO_BRADCAST,&val,sizeof(val))<0)
+{
+	perror("setsockopt()");
+	exit(1);
+}
+
+inet_pton(AF_INET,"255.255.255.255",&raddr.sin_addr);
+
+```
+
+
+### rcver.c
+
+```c 
+int val=1;
+if(setsockopt(sd,SOL_SOCKET,SO_BROADCAST,&val,sizeof(val))<0)
+{
+	perror("setsockopt()");
+	exit(1);
+}
+```
+
+
+
+## multicast多播
+
+组的约定
+
+### proto.h
+
+```c 
+#define MGROUP "224.2.2.2"
+```
+
+`man 7 ip`
+网络设备到索引号 
+### snder.c
+创建多播组
+```c
+struct ip_mreqn mreq;
+inet_pton(AF_INET,MGROUP,&mreq.imr_multiaddr);
+inet_pton(AF_INET,"0.0.0.0",&mreq.imr_address);
+mreq.imr_ifindex=if_nametoindex("eth0");//网络设备索引号 
+if(setsocketopt(sd,IPPROTO_IP,IP_MULTICAST_IF,&mreq,sizeof(mreq))<0)
+{
+	perror("setsocket()");
+	exit(1);
+}
+
+inet_pton(AF_INET,MGROUP,&raddr.sin_addr);
+```
+
+### rcver.c
+加入多播组
+```c
+struct ip_mreqn mreq;
+
+inet_pton(AF_INET,MGROUP,&mreq.imr_multiaddr);
+inet_pton(AF_INET,"0.0.0.0",&mreq.imr_address);
+
+mreq.imr_ifindex=if_nametoindex("eth0");
+if(setsockopt(sd,IPPROTO_IP,IP_ADD_MEMBERSHIP,&mreq,sizeof(mreq))<0){
+	perror("setsockopt()");
+	exit(1);
+}
+```
+
+![[Pasted image 20260323100204.png]]
+清空，否则 内存泄露 栈上的数据 10 0a 40;
+
+`memset(&sbuf,' \0',sizeof(sbuf));`
+![[Pasted image 20260323100318.png]]
+
+
+## myftp_udp
+
+之前基于消息队列
+
+**UDP 丢包的现象**。
+不是因为TTL(time to live)字段,经过的路由次数，default=64
+而是因为 阻塞。路由器的等待队列。丢包的算法实现。
+解决：流控，**停等式流控**，请求，ack.发包，等待，回确定收到的消息。闭环，带校验。丢包率 有无下降？无，反倒提高，两个包。
+有限状态机模型
+
+![[Pasted image 20260324155144.png]]
+RTT 等待时间。不知道下一个包何时到来。超时重传。
+一个rtt发n个包，滑动窗口，来一个ack发一个data包,最大限度抢占沿途资源

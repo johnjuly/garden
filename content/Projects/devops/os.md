@@ -12,3 +12,9 @@ why? abstraction of the os from the hardware.将os与硬件紧密相连？virtua
 
 
 windows的c盘？历史 a b 盘是插入的软盘
+
+
+## cli
+uname -a
+cat /etc/os-release
+lscpu/lsmem
