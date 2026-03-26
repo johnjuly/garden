@@ -142,3 +142,168 @@ if(setsockopt(sd,SOL_SOCKET,SO_REUSEADDR,&val,sizeof(val))<0)
 	exit(1);
 }
 ```
+
+
+### client 
+
+nc的过程
+
+一切皆文件
+socket封装成流来使用，转换为标准io，
+`fp=fdopen(sd,"")`
+
+```c client.c
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include<sys/socket.h>
+#include<netinet/in.h>
+
+#include "proto.h"
+
+int main(int argc,char *argv[])
+{
+	int sd;
+	struct sockaddr_in raddr;
+	long long stamp;
+	FILE *fp;
+	if(argc<2)
+	{
+		fprintf(stderr,"Usage...\n");
+		exit(1);
+	}
+	
+	sd=socket(AF_INET,SOCK_STREAM,0);
+	if(sd<0)
+	{
+		perror("socket()");
+		exit(1);
+	}
+	
+	//bind();
+	
+	raddr.sin_family=AF_INET;
+	raddr.sin_port=htons(atoi(SERVERPORT));
+	inet_pton(AF_INET,argv[1],&raddr.sin_addr);
+	if(connect(sd,(void *)&raddr,sizeof(raddr))<0)
+	{
+		perror("connect()");
+		exit(1);
+	}
+	
+	fp=fdopen(sd,"r+");
+	if(fp==NULL)
+	{
+		perror("fdopen()");
+		exit(1);
+	}
+	
+	//标准IO
+	
+	if(fscanf(fp,FMT_STAMP,&stamp)<1)
+	{
+		fprintf(stderr,"Bad format!\n");
+		
+	}
+	else 
+		fprintf(stdout,"stamp=%lld\n",stamp);
+	
+	fclose(fp);
+	
+	
+	//rcve();
+	//close();
+	
+	exit(0);
+}
+```
+
+
+
+
+## 并发
+
+### server
+
+分成上下游的关系，上游 父进程负责 accept,成功 serverjob的工作交给;子进程去干活。
+
+```c
+while(1)
+{
+	newsd= accept();
+	if(newsd<0)
+	{
+		perror();
+		exit(1);
+	}
+	pid=fork();
+	if(pid<0)
+	{
+		perror("fork()");
+		exit(1);
+	}
+	if(pid==0)
+	{
+		close(sd);
+		//干活
+		inet_ntop
+		printf
+		server_job(newsd);
+		close(newsd);
+		exit(0);
+	}
+	close(newsd);
+	
+
+}
+```
+
+
+
+## 静态进程池
+
+
+server.c
+
+```c
+#define PROCNUM 4
+
+int main()
+{
+	pid_t pid;
+	for(i=0;i<PROCNUM;i++)
+	{
+	pid=fork();
+	if(pid<0)
+	{
+		perror("fork()");
+		exit(1);
+	}
+	if(pid==0)
+	{
+		server_loop(sd);
+		exit(0);
+	}
+
+	}
+	
+	
+	for(i=0;i<PROCNUM;i++)
+		wait(NULL);
+	close(sd);
+	exit(0);
+}
+
+void server_loop(int sd)
+{
+	//接收连接 干活
+	struct sockaddr_in addr;
+	socklen_t raddr_len;
+	int newsd;
+	
+	rddr_len=sizeof(raddr);
+	char ipstr[IPSTRSIZE];
+	
+	accept();//天生互斥
+}
+```

@@ -21,4 +21,4 @@ created: "2026-01-06"
 
 ---
 
-摄影集: (https://unsplash.com/@johnjuly/collections)
+摄影集: (https://unsplash.com/@johnjuly)
