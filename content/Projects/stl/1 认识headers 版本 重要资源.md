@@ -8,10 +8,9 @@ tags:
 
 ## headers
 
->[! note]  概念
->
-c++standard library（头文件形式呈现） 不需要.h `#include <vector>`;
-standard template library(六大部件) 标准模板库 。所有组件封装到std 命名空间里
+>[!note]  概念
+>c++standard library（头文件形式呈现） 不需要.h `#include <vector>`;
+>standard template library(六大部件) 标准模板库 。所有组件封装到std 命名空间里
 
 ## 版本
 不同编译器所带的标准库 使用相同

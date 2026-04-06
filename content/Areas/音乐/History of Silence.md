@@ -1,5 +1,7 @@
 ---
 created: 2026-03-22
+tags:
+  - 歌词
 ---
 > 准备了
 
@@ -208,3 +210,10 @@ _On my skin_
 *I like to shake like a leaf*
 
 *I like to* 
+
+
+
+![[Pasted image 20260406221743.png|0404 于天桥边的海棠花]]
+
+> *0404天桥边的海棠*
+
