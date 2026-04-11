@@ -47,15 +47,41 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
-    Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      direction: "column",
+    Component.MobileOnly(Component.Flex({
+      direction: "row",
+      wrap: "nowrap",
+      gap: "0.75rem",
+      components: [
+        { Component: Component.MobileToc() },
+        {
+          Component: Component.PageTitle(),
+          grow: true,
+          align: "stretch",
+        },
+        {
+          Component: Component.Flex({
+            direction: "row",
+            gap: "0.5rem",
+            components: [
+              { Component: Component.Search() },
+              { Component: Component.Darkmode() },
+            ],
+          }),
+          basis: "auto",
+          align: "stretch",
+        },
+      ],
+    })),
+    Component.DesktopOnly(Component.PageTitle()),
+    Component.DesktopOnly(Component.Flex({
+      direction: "row",
+      wrap: "wrap",
       gap: "0.5rem",
       components: [
         {
           Component: Component.Search(),
-          basis: "100%",
+          basis: "0",
+          grow: true,
           align: "stretch",
         },
         {
@@ -63,15 +89,15 @@ export const defaultContentPageLayout: PageLayout = {
             gap: "0.5rem",
             components: [
               { Component: Component.Darkmode() },
-              { Component: Component.ReaderMode() },
+              { Component: Component.DesktopOnly(Component.ReaderMode()) },
             ],
           }),
-          basis: "100%",
+          basis: "auto",
           align: "stretch",
         },
       ],
-    }),
-    Component.RecentNotes({ limit: 4 }),
+    })),
+    Component.DesktopOnly(Component.RecentNotes({ limit: 4 })),
   ],
   right: [Component.DesktopOnly(Component.TableOfContents()),
     Component.DesktopOnly(Component.Graph()),
@@ -100,7 +126,7 @@ export const defaultListPageLayout: PageLayout = {
         },
       ],
     }),
-    Component.RecentNotes(),
+    Component.DesktopOnly(Component.RecentNotes()),
   ],
   right: [],
 }
