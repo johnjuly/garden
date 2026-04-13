@@ -35,9 +35,6 @@ created: "2026-01-06"
 - [[法语 A1|法语()]]
 
 
-### 网络实验
-
-[[lab 0 networking warmup]]
 
 ### linux系统编程
 
