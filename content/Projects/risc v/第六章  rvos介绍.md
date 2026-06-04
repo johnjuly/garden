@@ -1,5 +1,8 @@
 ---
-created: '2026-01-06'
+created: 2026-01-06
+field: cs
+type: course-note
+topic: os
 ---
 
 

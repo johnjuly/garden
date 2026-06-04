@@ -2,6 +2,9 @@
 created: 2026-01-06
 tags:
   - 安全
+type: course-note
+field: cs
+topic: security
 ---
 
 ## the cia traid

@@ -1,5 +1,6 @@
 ---
-created: '2026-01-06'
+created: 2026-01-06
+type: fragment
 ---
 
 [23](https://xkcd.com/3184/)

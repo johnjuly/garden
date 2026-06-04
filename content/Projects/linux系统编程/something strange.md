@@ -1,5 +1,8 @@
 ---
-created: '2026-01-06'
+created: 2026-01-06
+tags:
+  - 彩蛋
+type: fragment
 ---
 
 sl (steam locomotive)

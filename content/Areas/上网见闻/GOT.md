@@ -1,5 +1,7 @@
 ---
-created: '2026-01-06'
+created: 2026-01-06
+type: 记录
+field: 台词
 ---
 
 

@@ -1,5 +1,10 @@
 ---
-created: '2026-01-06'
+created: 2026-01-06
+type: study_note
+field: cs
+topic: 图形学
+tags:
+  - 材质与外观
 ---
 
 材质与外观；

@@ -1,5 +1,7 @@
 ---
 created: 2026-03-22
+field: cs
+topic: devops
 ---
 
 ## 虚拟化

@@ -1,5 +1,8 @@
 ---
-created: '2026-01-06'
+created: 2026-01-06
+type: word
+field: language
+topic: french
 ---
 
 **“apropos” 本身是一个源自法语的英语单词（à propos），读作 /ˌæp.rəˈpəʊ/。它的核心含义是“关于；有关；就…而言”。**

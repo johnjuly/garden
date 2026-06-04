@@ -1,5 +1,8 @@
 ---
-created: "2026-01-23"
+created: 2026-01-23
+field: cs
+type: course-note
+topic: 数据处理
 ---
 
 ## 课堂

@@ -1,5 +1,8 @@
 ---
-created: '2026-01-06'
+created: 2026-01-06
+type: fragment
+topic: 算法
+field: cs
 ---
 
 循环 递归 迭代  

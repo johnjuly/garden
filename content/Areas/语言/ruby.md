@@ -1,5 +1,10 @@
 ---
-created: '2026-01-06'
+created: 2026-01-06
+type: study_note
+topic: 编程语言
+field: cs
+tags:
+  - ruby
 ---
 
 条件判断unless  condition为假时执行

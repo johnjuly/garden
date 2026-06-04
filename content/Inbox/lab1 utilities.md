@@ -4,6 +4,9 @@ tags:
   - 记录
   - 操作系统
   - lab
+type: study_note
+field: cs
+topic: os
 ---
 
 ## boot

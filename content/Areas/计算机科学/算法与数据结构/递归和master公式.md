@@ -4,7 +4,9 @@ tags:
   - 算法与数据结构
   - 递归
   - master公式
-type: 算法
+topic: 算法
+type: course-note
+field: cs
 ---
 ## 递归
 

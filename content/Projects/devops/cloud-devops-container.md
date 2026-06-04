@@ -1,5 +1,12 @@
 ---
-created: '2026-01-06'
+created: 2026-01-06
+field: cs
+type: study_note
+tags:
+  - 对比
+  - 容器
+  - 虚拟机
+topic: devops
 ---
 
 

@@ -4,6 +4,8 @@ tags:
   - 新知
   - word
   - ml
+type: word
+field: cs
 ---
 
 

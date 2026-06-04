@@ -3,6 +3,9 @@ created: 2026-04-06
 tags:
   - csapp
   - 位运算
+type: study_note
+course: csapp
+field: cs
 ---
 > 理解 the bit-level **representations** of C data types and the bit-level behavior of the **operations** on data
 

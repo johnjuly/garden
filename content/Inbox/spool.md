@@ -2,7 +2,10 @@
 tags:
   - 词源
   - 操作系统
-created: '2026-01-06'
+created: 2026-01-06
+type: word
+field: cs
+topic: io
 ---
 
 
