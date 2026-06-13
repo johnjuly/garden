@@ -57,7 +57,7 @@ created: "2026-01-06"
 
 ## 收藏的链接
 
-- [[Archieves/Bookmarks/bookmarks_categorized|看世界]]
+- [[bookmarks_categorized|看世界]]
 
 ## 其他
 
