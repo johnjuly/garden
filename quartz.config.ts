@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "zh-CN",
-    baseUrl: "johnjuly.github.io/garden",
+    baseUrl: "jardin.cielbleu.top",
     ignorePatterns: ["private", "templates", ".obsidian", "dailynote"],
     defaultDateType: "created",
     theme: {
