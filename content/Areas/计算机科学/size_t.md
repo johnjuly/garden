@@ -1,9 +1,11 @@
 ---
 created: 2026-07-01
 tags:
-type:
-field:
-topic:
+  - 词源
+  - c
+type: word
+field: cs
+topic: c
 ---
 c标准库 typedef 
 

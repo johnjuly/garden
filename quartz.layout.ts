@@ -31,7 +31,7 @@ export const sharedPageComponents: SharedLayout = {
         url: "https://github.com/johnjuly",
         rel: "me",
       },
-      "⁂": "https://onde.cielbleu.top/@johnjuly",
+      "⁂": "https://m.cmx.im/@johnjuly",
     },
   }),
 }

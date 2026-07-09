@@ -1,5 +1,8 @@
 ---
 created: 2026-01-06
+tags:
+  - 词源
+  - 法语
 type: word
 field: language
 topic: french
@@ -7,8 +10,6 @@ topic: french
 
 **“apropos” 本身是一个源自法语的英语单词（à propos），读作 /ˌæp.rəˈpəʊ/。它的核心含义是“关于；有关；就…而言”。**
 
-它可以作为 **介词**、**形容词** 或 **副词** 使用，带有一种“恰当地、贴切地”的意味。 
-#词源
-#法语
+它可以作为 **介词**、**形容词** 或 **副词** 使用，带有一种”恰当地、贴切地”的意味。
 
 >Type "apropos word" to search for commands related to "word".
