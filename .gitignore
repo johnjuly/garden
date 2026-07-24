@@ -9,5 +9,6 @@ tsconfig.tsbuildinfo
 private/
 .replit
 replit.nix
-dailynote/
+Dailynote/
+Private/
 content/Excalidraw/

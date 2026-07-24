@@ -17,7 +17,7 @@ const config: QuartzConfig = {
     },
     locale: "zh-CN",
     baseUrl: "jardin.cielbleu.top",
-    ignorePatterns: ["private", "templates", ".obsidian", "dailynote"],
+    ignorePatterns: ["Private", "templates", ".obsidian", "Dailynote"],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
