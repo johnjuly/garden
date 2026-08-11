@@ -98,7 +98,7 @@ export const defaultContentPageLayout: PageLayout = {
         },
       ],
     })),
-    Component.DesktopOnly(Component.RecentNotes({ limit: 4 })),
+    Component.DesktopOnly(Component.RecentNotes({ limit: 4, linkToMore: "tags" })),
   ],
   right: [Component.DesktopOnly(Component.TableOfContents()),
     Component.DesktopOnly(Component.Graph()),
@@ -127,7 +127,7 @@ export const defaultListPageLayout: PageLayout = {
         },
       ],
     }),
-    Component.DesktopOnly(Component.RecentNotes()),
+    Component.DesktopOnly(Component.RecentNotes({ linkToMore: "tags" })),
   ],
   right: [],
 }

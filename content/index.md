@@ -4,11 +4,11 @@ created: "2026-01-06"
 ---
 
 欢迎来到 John 的数字花园！这里主要记录网上的见闻以及课堂的笔记。
-路径是以PIAA的方式来整理的。
+路径是以 PIAA 的方式来整理的。
 
 ---
 
-## P*roject*
+## [P*roject*](01-Projects/)
 
 > [!abstract]- 分类
 > > [!example]- Linux 系统编程
@@ -24,19 +24,17 @@ created: "2026-01-06"
 > > 
 > > - [[1 认识headers 版本 重要资源|01]]
 
-
-
 ---
 
-## I*nbox*
+## [I*nbox*](02-Inbox/)
 
 - [[epoch]]
 
-
 ---
-## A*rea*
 
-> [!abstract]- 分类
+## [A*rea*](03-Areas/)
+
+> [!todo]- 分类
 >
 > > [!example]- 工具
 > > - [[tool]]
@@ -74,19 +72,14 @@ created: "2026-01-06"
 
 ---
 
-
-## A*rchives*
+## [A*rchives*](04-Archieves/)
 
 > [!info]-
 > - [[bookmarks_categorized|看世界]]
 > - [[物联网安全]]
 
+---
 
-
-
-## 源自
+[[about|关于]] · [[friends|友链]]
 
 [参考的一个网友的网站](https://xuan-insr.github.io/neura-weaver/)
-
- [[about|关于]]
-
