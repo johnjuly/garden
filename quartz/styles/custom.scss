@@ -3,6 +3,11 @@
 
 // put your custom CSS here!
 
+// Square off the tag pills inside the homepage recent-notes list.
+.recent-notes a.tag-link {
+  border-radius: 0;
+}
+
 // Sidebar search should span the full sidebar width (override default max-width).
 .sidebar.left .search {
   width: 100%;
@@ -28,13 +33,19 @@
     width: 100%;
     padding: 1.25rem 1rem 1rem;
     gap: 1rem;
-    background: var(--surface);
+    background: var(--light);
     border-bottom: 1px solid var(--lightgray);
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.06);
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     flex-direction: row;
+  }
+
+  // The Explorer's sticky top-bar rule zeroes the horizontal padding;
+  // restore the same edge padding as the rest of the bar.
+  .page > #quartz-body .sidebar.left:has(.explorer) {
+    padding: 1rem 0.75rem 0.75rem;
   }
 
   .sidebar.left > .page-title {

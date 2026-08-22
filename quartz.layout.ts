@@ -43,64 +43,89 @@ export const defaultContentPageLayout: PageLayout = {
       component: Component.Breadcrumbs(),
       condition: (page) => page.fileData.slug !== "index",
     }),
-    Component.ArticleTitle(),
-    Component.ContentMeta(),
+    // homepage: hero, category cards and recent updates
+    Component.ConditionalRender({
+      component: Component.HomeHero(),
+      condition: (page) => page.fileData.slug === "index",
+    }),
+    Component.ConditionalRender({
+      component: Component.FolderCards(),
+      condition: (page) => page.fileData.slug === "index",
+    }),
+    Component.ConditionalRender({
+      component: Component.RecentNotes({ limit: 10, title: "最近更新", linkToMore: false }),
+      condition: (page) => page.fileData.slug === "index",
+    }),
+    Component.ConditionalRender({
+      component: Component.ArticleTitle(),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
+    Component.ConditionalRender({
+      component: Component.ContentMeta(),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
     Component.TagList(),
   ],
   left: [
-    Component.MobileOnly(Component.Flex({
-      direction: "row",
-      wrap: "nowrap",
-      gap: "0.75rem",
-      components: [
-        { Component: Component.MobileToc() },
-        {
-          Component: Component.PageTitle(),
-          grow: true,
-          align: "stretch",
-        },
-        {
-          Component: Component.Flex({
-            direction: "row",
-            gap: "0.5rem",
-            components: [
-              { Component: Component.Search() },
-              { Component: Component.Darkmode() },
-            ],
-          }),
-          basis: "auto",
-          align: "stretch",
-        },
-      ],
-    })),
+    Component.MobileOnly(
+      Component.Flex({
+        direction: "row",
+        wrap: "nowrap",
+        gap: "0.75rem",
+        components: [
+          { Component: Component.MobileToc() },
+          {
+            Component: Component.PageTitle(),
+            grow: true,
+            align: "stretch",
+          },
+          {
+            Component: Component.Flex({
+              direction: "row",
+              gap: "0.5rem",
+              components: [{ Component: Component.Search() }, { Component: Component.Darkmode() }],
+            }),
+            basis: "auto",
+            align: "stretch",
+          },
+        ],
+      }),
+    ),
     Component.DesktopOnly(Component.PageTitle()),
-    Component.DesktopOnly(Component.Flex({
-      direction: "row",
-      wrap: "wrap",
-      gap: "0.5rem",
-      components: [
-        {
-          Component: Component.Search(),
-          basis: "0",
-          grow: true,
-          align: "stretch",
-        },
-        {
-          Component: Component.Flex({
-            gap: "0.5rem",
-            components: [
-              { Component: Component.Darkmode() },
-              { Component: Component.DesktopOnly(Component.ReaderMode()) },
-            ],
-          }),
-          basis: "auto",
-          align: "stretch",
-        },
-      ],
-    })),
-    Component.DesktopOnly(Component.RecentNotes({ limit: 4, linkToMore: "tags" })),
+    Component.DesktopOnly(
+      Component.Flex({
+        direction: "row",
+        wrap: "wrap",
+        gap: "0.5rem",
+        components: [
+          {
+            Component: Component.Search(),
+            basis: "0",
+            grow: true,
+            align: "stretch",
+          },
+          {
+            Component: Component.Flex({
+              gap: "0.5rem",
+              components: [
+                { Component: Component.Darkmode() },
+                { Component: Component.DesktopOnly(Component.ReaderMode()) },
+              ],
+            }),
+            basis: "auto",
+            align: "stretch",
+          },
+        ],
+      }),
+    ),
+    Component.Explorer({
+      folderClickBehavior: "link",
+      folderDefaultState: "collapsed",
+      useSavedState: true,
+    }),
   ],
-  right: [Component.DesktopOnly(Component.TableOfContents()),
+  right: [
+    Component.DesktopOnly(Component.TableOfContents()),
     Component.DesktopOnly(Component.Graph()),
   ],
 }
@@ -127,7 +152,11 @@ export const defaultListPageLayout: PageLayout = {
         },
       ],
     }),
-    Component.DesktopOnly(Component.RecentNotes({ linkToMore: "tags" })),
+    Component.Explorer({
+      folderClickBehavior: "link",
+      folderDefaultState: "collapsed",
+      useSavedState: true,
+    }),
   ],
   right: [],
 }

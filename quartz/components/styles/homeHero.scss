@@ -1,0 +1,45 @@
+.home-hero {
+  padding: 1.5rem 0 0.25rem;
+
+  & .home-hero-title {
+    margin: 0 0 0.6rem;
+    font-size: 2.2rem;
+    line-height: 1.3;
+    color: var(--dark);
+  }
+
+  & .home-hero-subtitle {
+    margin: 0;
+    max-width: 42rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--gray);
+  }
+
+  & .home-hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    list-style: none;
+    margin: 1.1rem 0 0;
+    padding: 0;
+
+    & a {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      border: 1px solid var(--lightgray);
+      border-radius: 0;
+      color: var(--secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+
+      &:hover {
+        background: var(--highlight);
+        border-color: var(--secondary);
+      }
+    }
+  }
+}
