@@ -21,6 +21,7 @@ const defaultOptions: Options = {
     { label: "关于", slug: "about" as FullSlug },
     { label: "友链", slug: "04-Archieves/friends" as FullSlug },
     { label: "标签", slug: "tags" as FullSlug },
+    { label: "碎语", slug: "碎语" as FullSlug },
     { label: "RSS", slug: "index.xml" as FullSlug },
   ],
 }

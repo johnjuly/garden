@@ -1,0 +1,66 @@
+// 碎语时间线主题适配：把 mastodon-timeline 拉进站点的暖色纸感配色
+// 库的配色变量是 --mt-color-*，这里统一映射到 Quartz 的主题变量，
+// 明暗主题自动跟随（Quartz 切换 saved-theme 时重定义底层变量）
+.mastodon-timeline {
+  .mt-container {
+    height: auto;
+    overflow-y: visible;
+    padding: 0;
+
+    &,
+    &[data-theme="light"] {
+      --mt-color-bg: transparent !important;
+      --mt-color-bg-hover: var(--highlight) !important;
+      --mt-color-line-gray: var(--lightgray) !important;
+      --mt-color-contrast-gray: var(--gray) !important;
+      --mt-color-content-txt: var(--dark) !important;
+      --mt-color-hashtag: var(--lightgray) !important;
+      --mt-color-link: var(--secondary) !important;
+      --mt-color-error-txt: var(--dark) !important;
+      --mt-color-placeholder: var(--lightgray) !important;
+      --mt-color-btn-bg: var(--secondary) !important;
+      --mt-color-btn-bg-hover: var(--tertiary) !important;
+      --mt-color-btn-txt: var(--light) !important;
+    }
+
+    &[data-theme="dark"] {
+      --mt-color-bg: transparent !important;
+      --mt-color-bg-hover: var(--highlight) !important;
+      --mt-color-line-gray: var(--lightgray) !important;
+      --mt-color-contrast-gray: var(--gray) !important;
+      --mt-color-content-txt: var(--light) !important;
+      --mt-color-hashtag: var(--lightgray) !important;
+      --mt-color-link: var(--secondary) !important;
+      --mt-color-error-txt: var(--light) !important;
+      --mt-color-placeholder: var(--lightgray) !important;
+      --mt-color-btn-bg: var(--secondary) !important;
+      --mt-color-btn-bg-hover: var(--tertiary) !important;
+      --mt-color-btn-txt: var(--dark) !important;
+    }
+  }
+
+  .mt-body {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .mt-post {
+    margin: 0;
+    padding: 1rem 0.25rem;
+  }
+
+  .mt-post-header {
+    margin-bottom: 0.5rem;
+  }
+
+  // 头像小一圈，和正文字号更协调
+  .mt-post-avatar-standard {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .mt-post-avatar-image-big img {
+    width: 2rem;
+    height: 2rem;
+  }
+}

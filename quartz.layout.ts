@@ -6,6 +6,11 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [
+    // 碎语页面的 Mastodon 时间线（仅碎语页渲染）
+    Component.ConditionalRender({
+      component: Component.MastodonTimeline(),
+      condition: (page) => page.fileData.slug === "碎语",
+    }),
     Component.Comments({
       provider: "giscus",
       options: {
@@ -53,7 +58,13 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) => page.fileData.slug === "index",
     }),
     Component.ConditionalRender({
-      component: Component.RecentNotes({ limit: 10, title: "最近更新", linkToMore: false }),
+      component: Component.RecentNotes({
+        limit: 10,
+        title: "最近更新",
+        linkToMore: false,
+        // 碎语是独立页面，不混入「最近更新」
+        filter: (page) => !page.slug?.startsWith("碎语"),
+      }),
       condition: (page) => page.fileData.slug === "index",
     }),
     Component.ConditionalRender({
@@ -122,6 +133,8 @@ export const defaultContentPageLayout: PageLayout = {
       folderClickBehavior: "link",
       folderDefaultState: "collapsed",
       useSavedState: true,
+      // 碎语是独立页面，不在探索目录树里显示
+      filterFn: (node) => node.slugSegment !== "tags" && node.slugSegment !== "碎语",
     }),
   ],
   right: [
@@ -156,6 +169,8 @@ export const defaultListPageLayout: PageLayout = {
       folderClickBehavior: "link",
       folderDefaultState: "collapsed",
       useSavedState: true,
+      // 碎语是独立页面，不在探索目录树里显示
+      filterFn: (node) => node.slugSegment !== "tags" && node.slugSegment !== "碎语",
     }),
   ],
   right: [],
