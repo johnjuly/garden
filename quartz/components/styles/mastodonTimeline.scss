@@ -64,3 +64,33 @@
     height: 2rem;
   }
 }
+
+// 灯箱弹窗：库把它 prepend 到 body 上（不在 .mastodon-timeline 里），且它的
+// <link> 在文档流后面，同优先级会盖过 index.css，所以这里全部加 !important。
+// 遮罩不用纯黑，换成站点的深色纸感色；弹窗文字用浅色保证在遮罩上可读
+.mt-dialog {
+  --mt-color-backdrop: rgba(32, 27, 21, 0.5) !important;
+  --mt-color-content-txt: var(--light) !important;
+  --mt-color-btn-bg: var(--secondary) !important;
+  --mt-color-btn-bg-hover: var(--tertiary) !important;
+  --mt-color-btn-txt: var(--dark) !important;
+
+  &[data-theme="dark"] {
+    --mt-color-backdrop: rgba(0, 0, 0, 0.62) !important;
+  }
+
+  // 关闭按钮更大更显眼，避免"页面点不动"时找不到出口
+  #mt-carousel-close {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.35);
+    border: none;
+  }
+
+  // 图片铺满整个弹窗盒子(object-fit:contain 只在绘制层裁剪)，点击会命中图片元素本身；
+  // 让它穿透到容器，这样"点弹窗内任意处=关闭"（视频除外，播放控件需要点击）
+  img.mt-carousel-media {
+    pointer-events: none;
+  }
+}

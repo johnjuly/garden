@@ -86,6 +86,16 @@ export default (() => {
         window.mtTimeline.mtColorTheme(theme)
       }
     })
+    // 灯箱弹窗：弹窗本体透明、遮罩全屏，页面看起来像"坏了"，点空白处直接关闭。
+    // 图片元素 pointer-events:none（见 scss），点击会穿透到容器，所以"弹窗内点击
+    // 即关闭"；只有视频（要留给播放控件）和上一张/下一张/关闭按钮例外
+    document.addEventListener("click", (e) => {
+      const d = e.target instanceof Element ? e.target.closest("dialog.mt-dialog") : null
+      if (!d || !d.open) return
+      const t = e.target
+      if (t instanceof Element && (t.tagName === "VIDEO" || t.closest(".mt-btn-dark, .mt-carousel-prev, .mt-carousel-next"))) return
+      d.close()
+    })
   `
   return MastodonTimeline
 }) satisfies QuartzComponentConstructor
