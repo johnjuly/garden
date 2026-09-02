@@ -1,7 +1,7 @@
 ---
 created: 2026-03-31
 tags:
-  - cpp
+  - cs/cpp
 ---
 - 泛型编程，generic programming . 即 使用模板为主要工具来编写程序
 - stl的体系结构。

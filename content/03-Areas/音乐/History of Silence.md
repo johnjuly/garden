@@ -1,9 +1,8 @@
 ---
 created: 2026-03-22
 tags:
-  - 歌词
-type: 歌词
-field: music
+  - 生活/歌词
+type: lyrics
 ---
 > 准备了
 

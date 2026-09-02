@@ -1,11 +1,10 @@
 ---
 created: 2026-07-01
 tags:
-  - 词源
-  - 编译
+  - 语言/词源
+  - cs/编译原理
+  - cs/cpp
 type:
-field: cs
-topic: cpp
 ---
 ## 词源
 

@@ -1,7 +1,7 @@
 ---
 created: 2026-01-08
 tags:
-  - 物理网安全
+  - cs/安全
 type: word
 ---
 

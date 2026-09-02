@@ -1,8 +1,8 @@
 ---
 created: 2026-04-22
 tags:
-  - cpp
-  - stl
+  - cs/cpp
+  - cs/stl
 ---
 ## deque
 

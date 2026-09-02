@@ -1,11 +1,9 @@
 ---
 created: 2026-01-06
-type: study_note
-field: cs
-topic: 图形学
 tags:
-  - 蒙特卡洛
-  - 光线追踪
+  - cs/光线追踪
+  - cs/图形学
+type: course-note
 ---
 
 >  games101lecture16：正确地实现光线传播的方式，解出所谓的渲染方程

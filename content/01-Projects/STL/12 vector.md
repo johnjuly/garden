@@ -1,8 +1,8 @@
 ---
 created: 2026-04-21
 tags:
-  - cpp
-  - stl
+  - cs/cpp
+  - cs/stl
 ---
 动态增长的数组。
 

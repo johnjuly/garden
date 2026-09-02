@@ -6,10 +6,10 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [
-    // 碎语页面的 Mastodon 时间线（仅碎语页渲染）
+    // 动态页面的 Mastodon 时间线（仅动态页渲染）
     Component.ConditionalRender({
       component: Component.MastodonTimeline(),
-      condition: (page) => page.fileData.slug === "碎语",
+      condition: (page) => page.fileData.slug === "动态",
     }),
     Component.Comments({
       provider: "giscus",
@@ -36,7 +36,6 @@ export const sharedPageComponents: SharedLayout = {
         url: "https://github.com/johnjuly",
         rel: "me",
       },
-      "⁂": "https://m.cmx.im/@johnjuly",
     },
   }),
 }
@@ -62,8 +61,8 @@ export const defaultContentPageLayout: PageLayout = {
         limit: 10,
         title: "最近更新",
         linkToMore: false,
-        // 碎语是独立页面，不混入「最近更新」
-        filter: (page) => !page.slug?.startsWith("碎语"),
+        // 动态是独立页面，不混入「最近更新」
+        filter: (page) => !page.slug?.startsWith("动态"),
       }),
       condition: (page) => page.fileData.slug === "index",
     }),
@@ -133,8 +132,8 @@ export const defaultContentPageLayout: PageLayout = {
       folderClickBehavior: "link",
       folderDefaultState: "collapsed",
       useSavedState: true,
-      // 碎语是独立页面，不在探索目录树里显示
-      filterFn: (node) => node.slugSegment !== "tags" && node.slugSegment !== "碎语",
+      // 动态是独立页面，不在探索目录树里显示
+      filterFn: (node) => node.slugSegment !== "tags" && node.slugSegment !== "动态" &&node.slugSegment !== "About",
     }),
   ],
   right: [
@@ -169,8 +168,8 @@ export const defaultListPageLayout: PageLayout = {
       folderClickBehavior: "link",
       folderDefaultState: "collapsed",
       useSavedState: true,
-      // 碎语是独立页面，不在探索目录树里显示
-      filterFn: (node) => node.slugSegment !== "tags" && node.slugSegment !== "碎语",
+      // 动态是独立页面，不在探索目录树里显示
+      filterFn: (node) => node.slugSegment !== "tags" && node.slugSegment !== "动态" &&node.slugSegment !== "About",
     }),
   ],
   right: [],

@@ -1,8 +1,8 @@
 ---
 created: 2026-05-02
 tags:
-  - cpp
-  - stl
+  - cs/cpp
+  - cs/stl
 ---
 set/multiset以rb_tree为底层结构，因此有元素自动排序的特性。排序的依据是key.而set/multiset元素的value和key合一，value就是key.
 

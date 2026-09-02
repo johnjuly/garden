@@ -1,8 +1,8 @@
 ---
 created: 2026-04-21
 tags:
-  - cpp
-  - stl
+  - cs/cpp
+  - cs/stl
 ---
 最具代表性。
 使用的分配器 alloc

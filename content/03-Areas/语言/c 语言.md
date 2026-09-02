@@ -1,10 +1,8 @@
 ---
 created: 2026-01-06
-type: todo
-topic: 编程语言
 tags:
-  - c
-field: cs
+  - cs/c
+type: todo
 ---
 
 [Learn C the hard way在新窗口中打开](https://wizardforcel.gitbooks.io/lcthw/content/preface.html) 练习0到练习18， 练习32，练习33，练习42，练习44 需要完成编程算法以及附加题.

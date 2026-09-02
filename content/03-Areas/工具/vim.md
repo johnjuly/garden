@@ -1,6 +1,6 @@
 ---
 created: 2026-01-06
-type: cheet-sheet
+type: cheat-sheet
 tool: vim
 ---
 

@@ -1,12 +1,10 @@
 ---
 created: 2026-04-02
 tags:
-  - 记录
-  - 操作系统
-  - lab
-type: study_note
-field: cs
-topic: os
+  - 来源/记录
+  - cs/操作系统
+  - 来源/lab
+type: course-note
 ---
 
 ## boot

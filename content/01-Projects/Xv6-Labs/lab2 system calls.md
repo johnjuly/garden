@@ -1,13 +1,11 @@
 ---
 created: 2026-04-15
 tags:
-  - 操作系统
-  - 记录
-  - lab
-  - 系统调用
-type: study_note
-field: cs
-topic: 系统调用
+  - cs/操作系统
+  - 来源/记录
+  - 来源/lab
+  - cs/系统调用
+type: course-note
 ---
 stub? 原意：被截断后剩下的一小截东西。票根，树桩。
 映射：功能没有实现，但接口仍在，函数壳，转发。

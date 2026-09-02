@@ -1,8 +1,8 @@
 ---
 created: 2026-01-26
-field: cs
-type: study_note
-topic: security
+tags:
+  - cs/安全
+type: course-note
 ---
 
 ## entropy

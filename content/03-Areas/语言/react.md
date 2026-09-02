@@ -1,10 +1,8 @@
 ---
 created: 2026-01-06
-type: study_note
-topic: 编程语言
-field: cs
 tags:
-  - react
+  - cs/react
+type: course-note
 ---
 
 > a javascript library for  building interfaces

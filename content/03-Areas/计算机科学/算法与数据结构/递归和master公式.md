@@ -1,12 +1,9 @@
 ---
 created: 2026-04-18
 tags:
-  - 算法与数据结构
-  - 递归
-  - master公式
-topic: 算法
+  - cs/递归
+  - cs/算法
 type: course-note
-field: cs
 ---
 ## 递归
 

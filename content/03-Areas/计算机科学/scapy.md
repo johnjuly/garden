@@ -1,7 +1,6 @@
 ---
 created: 2026-01-06
 type: word
-field: 编译原理
 ---
 
 

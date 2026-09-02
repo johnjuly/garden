@@ -6,9 +6,8 @@ published:
 created: 2025-12-27
 description: Explore vim.rtorr.com for an extensive Vim cheat sheet, offering clear, concise commands and shortcuts for Vim users. Whether you're a beginner or an experienced developer, find tips and tricks to enhance your coding efficiency in Vim.
 tags:
-  - clippings
-  - 工具
-  - vim
+  - 来源/clippings
+  - cs/vim
 ---
 ## Global
 

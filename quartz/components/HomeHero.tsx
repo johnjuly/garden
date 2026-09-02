@@ -18,10 +18,10 @@ const defaultOptions: Options = {
   title: "Bienvenue!",
   subtitle: "欢迎来到john的数字花园^-^ 这里主要记录网上的见闻以及课堂的笔记。路径是以 PIAA 的方式来整理的。",
   links: [
-    { label: "关于", slug: "about" as FullSlug },
+    { label: "关于", slug: "About" as FullSlug },
     { label: "友链", slug: "04-Archieves/friends" as FullSlug },
     { label: "标签", slug: "tags" as FullSlug },
-    { label: "碎语", slug: "碎语" as FullSlug },
+    { label: "动态", slug: "动态" as FullSlug },
     { label: "RSS", slug: "index.xml" as FullSlug },
   ],
 }

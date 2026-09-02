@@ -1,11 +1,9 @@
 ---
 created: 2026-05-18
 tags:
-  - 新知
-  - word
-  - ml
+  - 来源/新知
+  - cs/ml
 type: word
-field: cs
 ---
 
 

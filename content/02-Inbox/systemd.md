@@ -1,10 +1,9 @@
 ---
 created: 2026-08-02
 tags:
-  - linux
-type: 名词解释
-field: cs
-topic: os
+  - cs/linux
+  - cs/操作系统
+type: word
 ---
 ![[Pasted image 20260802173825.png]]
 

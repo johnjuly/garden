@@ -1,8 +1,8 @@
 ---
 created: 2026-05-03
 tags:
-  - cpp
-  - stl
+  - cs/cpp
+  - cs/stl
 ---
 - multimap/map以rb_tree为底层结构，因此有元素自动排序特性，排序依据是key.
 - multimap/map提供遍历操作及iterators.按正常规则++ite遍历，便能获得排序状态。

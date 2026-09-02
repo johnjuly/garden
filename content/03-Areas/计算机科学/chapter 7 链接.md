@@ -1,8 +1,8 @@
 ---
 created: 2026-05-19
-type: read
+type: clip
 tags:
-  - csapp
+  - cs/csapp
 ---
 ## 概念
 

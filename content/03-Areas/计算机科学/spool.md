@@ -1,11 +1,10 @@
 ---
-tags:
-  - 词源
-  - 操作系统
 created: 2026-01-06
+tags:
+  - 语言/词源
+  - cs/操作系统
+  - cs/IO
 type: word
-field: cs
-topic: io
 ---
 
 
