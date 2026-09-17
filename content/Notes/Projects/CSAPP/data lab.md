@@ -3,6 +3,7 @@ created: 2026-04-06
 tags:
   - cs/csapp
   - cs/位运算
+  - 来源/lab
 type: course-note
 course: csapp
 ---

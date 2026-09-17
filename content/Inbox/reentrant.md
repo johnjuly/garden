@@ -1,5 +1,5 @@
 ---
-title: reentrant - Google 搜索
+title: reentrant
 source: https://www.google.com/search?q=reentrant&sourceid=chrome&ie=UTF-8
 author:
 published:

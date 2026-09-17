@@ -47,13 +47,9 @@ export const defaultContentPageLayout: PageLayout = {
       component: Component.Breadcrumbs(),
       condition: (page) => page.fileData.slug !== "index",
     }),
-    // homepage: hero, category cards and recent updates
+    // homepage: hero and recent updates
     Component.ConditionalRender({
       component: Component.HomeHero(),
-      condition: (page) => page.fileData.slug === "index",
-    }),
-    Component.ConditionalRender({
-      component: Component.FolderCards(),
       condition: (page) => page.fileData.slug === "index",
     }),
     Component.ConditionalRender({

@@ -8,6 +8,7 @@ description: Explore vim.rtorr.com for an extensive Vim cheat sheet, offering cl
 tags:
   - 来源/clippings
   - cs/vim
+  - 待看
 ---
 ## Global
 

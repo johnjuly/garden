@@ -1,6 +1,8 @@
 ---
 created: 2026-01-23
 type: course-note
+tags:
+  - cs/linux
 ---
 
 ## 课堂
