@@ -21,7 +21,7 @@ import DesktopOnly from "./DesktopOnly"
 import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import HomeHero from "./HomeHero"
-import MastodonTimeline from "./MastodonTimeline"
+import MemosTimeline from "./MemosTimeline"
 import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import Flex from "./Flex"
@@ -50,7 +50,7 @@ export {
   MobileOnly,
   RecentNotes,
   HomeHero,
-  MastodonTimeline,
+  MemosTimeline,
   NotFound,
   Breadcrumbs,
   Comments,

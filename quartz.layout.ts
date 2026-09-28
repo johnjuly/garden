@@ -6,9 +6,9 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [
-    // 动态页面的 Mastodon 时间线（仅动态页渲染）
+    // 动态页面的 Memos 时间线（仅动态页渲染）
     Component.ConditionalRender({
-      component: Component.MastodonTimeline(),
+      component: Component.MemosTimeline(),
       condition: (page) => page.fileData.slug === "动态",
     }),
     Component.Comments({
@@ -129,7 +129,8 @@ export const defaultContentPageLayout: PageLayout = {
       folderDefaultState: "collapsed",
       useSavedState: true,
       // 动态是独立页面，不在探索目录树里显示
-      filterFn: (node) => node.slugSegment !== "tags" && node.slugSegment !== "动态" &&node.slugSegment !== "About",
+      filterFn: (node) =>
+        node.slugSegment !== "tags" && node.slugSegment !== "动态" && node.slugSegment !== "About",
     }),
   ],
   right: [
@@ -165,7 +166,8 @@ export const defaultListPageLayout: PageLayout = {
       folderDefaultState: "collapsed",
       useSavedState: true,
       // 动态是独立页面，不在探索目录树里显示
-      filterFn: (node) => node.slugSegment !== "tags" && node.slugSegment !== "动态" &&node.slugSegment !== "About",
+      filterFn: (node) =>
+        node.slugSegment !== "tags" && node.slugSegment !== "动态" && node.slugSegment !== "About",
     }),
   ],
   right: [],

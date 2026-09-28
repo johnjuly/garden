@@ -1,0 +1,129 @@
+// Memos 时间线：卡片列表，全部映射到 Quartz 主题变量，
+// 明暗主题自动跟随（与站点暖色纸感配色一致）
+.memos-timeline {
+  .memos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .memo-card {
+    background-color: var(--light);
+    border: 1px solid var(--lightgray);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease;
+
+    &:hover {
+      border-color: var(--gray);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  .memo-content {
+    color: var(--dark);
+    font-size: 1rem;
+    line-height: 1.7;
+    overflow-wrap: break-word;
+
+    p {
+      margin: 0 0 0.4rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      color: var(--secondary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    strong {
+      color: var(--darkgray);
+    }
+
+    code {
+      background-color: var(--highlight);
+      border-radius: 4px;
+      padding: 0.1em 0.35em;
+      font-family: var(--codeFont);
+      font-size: 0.9em;
+    }
+  }
+
+  .memo-tag {
+    display: inline-block;
+    color: var(--secondary);
+    background-color: var(--highlight);
+    border-radius: 999px;
+    padding: 0 0.5em;
+    margin-right: 0.3em;
+    font-size: 0.85em;
+    white-space: nowrap;
+  }
+
+  .memo-img {
+    display: inline-block;
+    margin: 0.25rem 0;
+    cursor: zoom-in;
+
+    img {
+      display: block;
+      max-width: 100%;
+      max-height: 20rem;
+      border-radius: 6px;
+      border: 1px solid var(--lightgray);
+    }
+  }
+
+  .memo-time {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--gray);
+    font-size: 0.8rem;
+  }
+
+  .memos-loading,
+  .memos-empty,
+  .memos-error {
+    color: var(--gray);
+    font-size: 0.95rem;
+  }
+
+  .memos-error a {
+    color: var(--secondary);
+  }
+}
+
+// 灯箱：全屏遮罩用站点的深色纸感色，点任意处即关闭
+.memos-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: rgba(32, 27, 21, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  animation: memos-fade-in 0.15s ease;
+
+  img {
+    max-width: 92vw;
+    max-height: 92vh;
+    border-radius: 6px;
+    object-fit: contain;
+  }
+}
+
+@keyframes memos-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
