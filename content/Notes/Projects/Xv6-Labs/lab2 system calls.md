@@ -117,3 +117,11 @@ pointer的情况。用户空间和内核空间不同，使用函数辅助，安�
 
 ## attack xv6
 
+
+
+相互隔离的进程和内核。它们之间相互交互只能通过sys call.
+- 目标：利用一个bug 偷取另一个进程的秘密 在`user/attack.c`中添加几行找出user/secret.c写入内存的秘密并打印。
+- bug: 3行  `kernel/vm.c->uvmalloc();kernel/kalloc.c`中没有调用memset(),标记`ifndef LAB_SYSCALL`
+- 新分配的内存保留了上次使用的信息`sbrk()`
+
+
