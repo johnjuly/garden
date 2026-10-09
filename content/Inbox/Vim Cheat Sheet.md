@@ -225,7 +225,7 @@ e.g.
 - \>> - indent (move right) line one shiftwidth
 - << - de-indent (move left) line one shiftwidth
 - \>% - indent a block with () or {} (cursor on brace)
-- <% - de-indent a block with () or {} (cursor on brace)
+- <% - de-indent a block with () or {} (cursor on brace
 - \>ib - indent inner block with ()
 - \>at - indent a block with <> tags
 - 3== - re-indent 3 lines
