@@ -1,0 +1,9 @@
+---
+created: 2026-01-06
+type: note
+tags:
+  - 收集
+---
+
+[23](https://xkcd.com/3184/)
+42.
