@@ -19,7 +19,7 @@ const defaultOptions: Options = {
   subtitle: "欢迎来到john的数字花园^-^ 这里主要记录网上的见闻以及学习笔记和生活记录。",
   links: [
     { label: "关于", slug: "About" as FullSlug },
-    { label: "友链", slug: "Archieves/friends" as FullSlug },
+    { label: "友链", slug: "Posts/friends" as FullSlug },
     { label: "标签", slug: "tags" as FullSlug },
     { label: "动态", slug: "动态" as FullSlug },
     { label: "RSS", slug: "index.xml" as FullSlug },
